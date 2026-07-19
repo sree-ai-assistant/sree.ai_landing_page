@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Remak - An API SDK for enterprise",
-  description: "SDK Wrapper for enterprise level integration.",
+  title: "Sree AI - The Multimodal AI Platform",
+  description: "Experience the next generation of AI with Sree Chat, real-time Sree Voice, Sree Image generation, and Sree Video studio.",
 };
 
 export default function RootLayout({
