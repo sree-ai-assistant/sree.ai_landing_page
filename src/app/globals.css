@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --background: #030014;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-dm: var(--font-dm);
+  --animate-logo-cloud: logo-cloud 30s linear infinite;
+  --animate-gradient: gradient 8s linear infinite;
+  --animate-header-slide-down-fade: header-slide-down-fade 0.5s ease-out forwards;
+}
+
+@keyframes logo-cloud {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 4rem));
+  }
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes header-slide-down-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility bg-glass-gradient {
+  background-image: linear-gradient(hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0.05));
+}
+
+@utility bg-page-gradient {
+  background-image: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent);
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm), Arial, Helvetica, sans-serif;
+}
+
