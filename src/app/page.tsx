@@ -128,23 +128,23 @@ export default function Home() {
       <main className="relative w-full">
         {/* HERO SECTION WITH PRESERVED BACKGROUND VIDEO */}
         <section className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-between pt-28 md:pt-36 pb-12 overflow-hidden border-b border-white/5">
-          {/* Background Video Layer */}
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-60">
+          {/* Background Blackhole Video Layer (Top Centered matching reference) */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1400px] h-[550px] sm:h-[650px] md:h-[720px] z-0 overflow-hidden pointer-events-none opacity-90 mix-blend-screen">
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover scale-105"
+              className="w-full h-full object-cover object-top"
             >
               <source src="/blackhole.webm" type="video/webm" />
               <source src="/hero-bg.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-b from-[#030014]/40 via-[#030014]/60 to-[#030014]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030014]/40 to-[#030014]" />
           </div>
 
-          {/* Ambient Lighting Accents */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-gradient-to-tr from-blue-600/20 via-indigo-600/20 to-purple-600/20 blur-[140px] pointer-events-none rounded-full" />
+          {/* Glowing purple aura light matching top portal */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] md:w-[900px] h-[350px] bg-gradient-to-b from-purple-600/30 via-indigo-600/20 to-transparent blur-[120px] pointer-events-none rounded-full" />
 
           {/* Hero Content */}
           <div className="relative z-10 max-w-6xl mx-auto px-6 text-center flex flex-col items-center justify-center my-auto">
