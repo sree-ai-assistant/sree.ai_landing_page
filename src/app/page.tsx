@@ -129,17 +129,18 @@ export default function Home() {
         {/* HERO SECTION WITH PRESERVED BACKGROUND VIDEO */}
         <section className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-between pt-28 md:pt-36 pb-12 overflow-hidden border-b border-white/5">
           {/* Background Video Layer */}
-          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40">
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-60">
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover filter blur-[2px] scale-105"
+              className="w-full h-full object-cover scale-105"
             >
+              <source src="/blackhole.webm" type="video/webm" />
               <source src="/hero-bg.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-b from-[#030014]/60 via-[#030014]/80 to-[#030014]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#030014]/40 via-[#030014]/60 to-[#030014]" />
           </div>
 
           {/* Ambient Lighting Accents */}
