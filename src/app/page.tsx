@@ -135,7 +135,7 @@ export default function Home() {
               loop
               muted
               playsInline
-              className="w-full h-full object-cover object-top"
+              className="w-full h-full object-cover object-bottom rotate-180 scale-105"
             >
               <source src="/blackhole.webm" type="video/webm" />
               <source src="/hero-bg.mp4" type="video/mp4" />
