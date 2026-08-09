@@ -13,14 +13,17 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { name: "Features", href: "#features" },
-  { name: "Capabilities", href: "#capabilities" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "AI Tools", href: "#tools" },
   { name: "Architecture", href: "#architecture" },
-  { name: "Testimonials", href: "#testimonials" },
+  { name: "Pricing", href: "#pricing" },
   { name: "FAQ", href: "#faq" },
 ];
 
-export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void }) {
+interface NavbarProps {
+  onOpenWaitlist?: (tier?: string) => void;
+}
+
+export default function Navbar({ onOpenWaitlist }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -67,48 +70,49 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
       layout
       transition={springTransition}
       className={`fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none transition-all duration-300 ${
-        scrolled ? "pt-3 md:pt-4 px-3 md:px-6" : "pt-2 md:pt-4 px-4 md:px-8"
+        scrolled ? "pt-3 md:pt-4 px-3 md:px-6" : "pt-0 px-0"
       }`}
     >
       <motion.nav
         layout
         transition={springTransition}
         animate={{
-          maxWidth: scrolled ? "1050px" : "1280px",
-          height: scrolled ? "58px" : "72px",
-          borderRadius: scrolled ? "9999px" : "20px",
+          maxWidth: scrolled ? "980px" : "100%",
+          height: scrolled ? "58px" : "74px",
+          borderRadius: scrolled ? "9999px" : "0px",
           boxShadow: scrolled
-            ? "0 12px 35px -10px rgba(0, 0, 0, 0.8), 0 0 25px 2px rgba(59, 130, 246, 0.2), 0 0 1px 1px rgba(255, 255, 255, 0.12)"
-            : "0 4px 20px -2px rgba(0, 0, 0, 0.5)",
-          backgroundColor: scrolled ? "rgba(3, 0, 20, 0.88)" : "rgba(3, 0, 20, 0.5)",
-          borderColor: scrolled ? "rgba(59, 130, 246, 0.3)" : "rgba(255, 255, 255, 0.08)",
+            ? "0 16px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px 2px rgba(59, 130, 246, 0.2), 0 0 1px 1px rgba(255, 255, 255, 0.15)"
+            : "none",
+          backgroundColor: scrolled ? "rgba(3, 0, 20, 0.9)" : "transparent",
+          borderColor: scrolled ? "rgba(59, 130, 246, 0.25)" : "transparent",
         }}
         className={`pointer-events-auto w-full relative overflow-hidden transition-colors duration-300 flex items-center border ${
-          scrolled ? "backdrop-blur-2xl" : "backdrop-blur-xl"
+          scrolled ? "backdrop-blur-2xl" : "backdrop-blur-none"
         }`}
       >
-        {/* Subtle top highlight gradient border inside navbar */}
-        <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent opacity-70 pointer-events-none" />
+        {/* Subtle top glow highlight */}
+        {scrolled && (
+          <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-80 pointer-events-none" />
+        )}
 
-        {/* Navigation Container */}
-        <div className="h-full w-full flex items-center justify-between px-4 md:px-8">
-          {/* Logo Section with Official Brand Image */}
+        {/* Desktop Container */}
+        <div
+          className={`h-full flex items-center justify-between transition-all duration-300 ${
+            scrolled ? "w-full px-5 md:px-6" : "w-full max-w-7xl mx-auto px-6 md:px-10"
+          }`}
+        >
+          {/* Official Primary Logo */}
           <motion.a
-            href="#"
+            href="/"
             layout
             transition={springTransition}
-            className="flex items-center gap-3 group cursor-pointer"
+            className="flex items-center gap-2 group cursor-pointer"
           >
-            <div className="relative flex items-center justify-center h-8 md:h-10 transition-transform duration-300 group-hover:scale-105">
-              <img
-                src="https://app.sreeai.qzz.io/Sree-ai-Primary-logo.png"
-                alt="Sree AI Logo"
-                className="h-7 md:h-9 w-auto object-contain"
-                onError={(e) => {
-                  (e.target as HTMLElement).style.display = 'none';
-                }}
-              />
-            </div>
+            <img
+              src="https://app.sreeai.qzz.io/Sree-ai-Primary-logo.png"
+              alt="Sree AI - All-in-One AI Platform"
+              className="h-8 md:h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </motion.a>
 
           {/* Desktop Nav Links */}
@@ -116,7 +120,7 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
             layout
             transition={springTransition}
             className={`hidden md:flex items-center text-sm font-medium transition-all duration-300 ${
-              scrolled ? "gap-4 lg:gap-6 text-zinc-300" : "gap-6 lg:gap-8 text-zinc-300"
+              scrolled ? "gap-4 lg:gap-6 text-zinc-300" : "gap-7 lg:gap-9 text-zinc-300"
             }`}
           >
             {NAV_ITEMS.map((item, idx) => {
@@ -131,7 +135,6 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
                   onMouseLeave={() => setHoveredIndex(null)}
                   className="relative px-3 py-1.5 transition-colors duration-200 hover:text-white"
                 >
-                  {/* Sliding hover/active glass pill indicator */}
                   {(isHovered || (hoveredIndex === null && isActive)) && (
                     <motion.div
                       layoutId="navbar-pill-indicator"
@@ -139,7 +142,7 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
                       className={`absolute inset-0 rounded-full ${
                         isActive && hoveredIndex === null
                           ? "bg-blue-500/15 border border-blue-500/30 shadow-[0_0_12px_rgba(59,130,246,0.25)]"
-                          : "bg-white/8 border border-white/10"
+                          : "bg-white/10 border border-white/15"
                       }`}
                     />
                   )}
@@ -155,7 +158,7 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
             })}
           </motion.div>
 
-          {/* Action Buttons (GitHub & Launch Console / Early Access CTA) */}
+          {/* Action CTAs */}
           <motion.div
             layout
             transition={springTransition}
@@ -176,18 +179,18 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              onClick={onOpenWaitlist || (() => window.open('https://app.sreeai.qzz.io', '_blank'))}
-              className={`relative group flex items-center justify-center gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_28px_rgba(59,130,246,0.5)] transition-all duration-300 cursor-pointer overflow-hidden ${
+              onClick={() => onOpenWaitlist?.("starter")}
+              className={`relative group flex items-center justify-center gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${
                 scrolled ? "px-4 py-1.5 text-xs" : "px-5 py-2 text-sm"
               }`}
             >
               <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative z-10 font-semibold tracking-wide">Launch App</span>
+              <span className="relative z-10 font-semibold tracking-wide">Launch Console</span>
               <ArrowRight className="relative z-10 h-3.5 w-3.5 group-hover:translate-x-1 transition-transform duration-200" />
             </motion.button>
           </motion.div>
 
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile Menu Toggle */}
           <div className="flex md:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -199,7 +202,7 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
           </div>
         </div>
 
-        {/* Mobile Menu Dropdown Overlay */}
+        {/* Mobile Dropdown */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -237,12 +240,11 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
-                    if (onOpenWaitlist) onOpenWaitlist();
-                    else window.open('https://app.sreeai.qzz.io', '_blank');
+                    onOpenWaitlist?.("starter");
                   }}
                   className="w-full flex items-center justify-center gap-2 rounded-xl py-3 px-5 font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition duration-200"
                 >
-                  <span>Launch App</span>
+                  <span>Launch Console</span>
                   <ArrowRight className="h-4 w-4" />
                 </button>
               </div>
@@ -253,3 +255,4 @@ export default function Navbar({ onOpenWaitlist }: { onOpenWaitlist?: () => void
     </motion.header>
   );
 }
+
