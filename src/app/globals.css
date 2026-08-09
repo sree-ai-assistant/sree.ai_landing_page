@@ -31,7 +31,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% - 4rem));
+    transform: translateX(-50%);
   }
 }
 
@@ -65,6 +65,11 @@
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-8px); }
 }
+
+.portal-ring-glow {
+  background: radial-gradient(ellipse 90% 50% at 50% -10%, rgba(147, 51, 234, 0.55) 0%, rgba(79, 70, 229, 0.3) 45%, transparent 80%);
+}
+
 
 @utility bg-glass-gradient {
   background-image: linear-gradient(hsla(0, 0%, 100%, 0), hsla(0, 0%, 100%, 0.04));
