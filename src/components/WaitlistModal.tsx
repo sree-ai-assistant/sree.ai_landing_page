@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX, FiCheckCircle, FiSend } from "react-icons/fi";
 import { Sparkles } from "lucide-react";
@@ -8,14 +8,24 @@ import { Sparkles } from "lucide-react";
 interface WaitlistModalProps {
   isOpen: boolean;
   onClose: () => void;
-  selectedTier?: string;
+  selectedTool?: string;
 }
 
-export default function WaitlistModal({ isOpen, onClose, selectedTier = "starter" }: WaitlistModalProps) {
+export default function WaitlistModal({
+  isOpen,
+  onClose,
+  selectedTool = "2D to 3D Convertor",
+}: WaitlistModalProps) {
   const [email, setEmail] = useState("");
-  const [tier, setTier] = useState(selectedTier);
+  const [tool, setTool] = useState(selectedTool);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (selectedTool) {
+      setTool(selectedTool);
+    }
+  }, [selectedTool]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,36 +87,36 @@ export default function WaitlistModal({ isOpen, onClose, selectedTier = "starter
                   className="h-8 w-8 object-contain"
                 />
                 <span className="text-xs uppercase tracking-widest font-semibold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
-                  Early Access Console
+                  Early Access Waitlist
                 </span>
               </div>
 
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
-                  Join Sree AI Early Access
+                  Join Upcoming Tools Early Access
                 </h3>
                 <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
-                  Get priority invite keys to experience sub-50ms voice dialogue, FLUX.1 speed nodes, and our multi-tool suite before official SaaS launch.
+                  Get early access to our upcoming <strong className="text-white">2D to 3D Convertor</strong> and <strong className="text-white">AI Humanizer & Enhancer</strong> tools. You will be notified first when we launch!
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-2">
                 <div>
                   <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
-                    Select Your Preferred Plan
+                    Select Tool to Unlock Early
                   </label>
-                  <div className="grid grid-cols-3 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {[
-                      { id: "free", label: "Free ($0)" },
-                      { id: "starter", label: "Starter ($8)" },
-                      { id: "pro", label: "Pro ($29)" },
+                      { id: "2D to 3D Convertor", label: "2D to 3D" },
+                      { id: "AI Humanizer & Enhancer", label: "Humanizer" },
+                      { id: "Both Tools", label: "Both Tools" },
                     ].map((item) => (
                       <button
                         key={item.id}
                         type="button"
-                        onClick={() => setTier(item.id)}
+                        onClick={() => setTool(item.id)}
                         className={`py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all duration-200 ${
-                          tier === item.id
+                          tool === item.id || tool.includes(item.id)
                             ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                             : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
                         }`}
@@ -148,13 +158,13 @@ export default function WaitlistModal({ isOpen, onClose, selectedTier = "starter
                   ) : (
                     <span className="flex items-center gap-2 text-sm font-semibold tracking-wide">
                       <FiSend className="h-4 w-4" />
-                      Reserve Priority Access
+                      Get Notified First On Launch
                     </span>
                   )}
                 </motion.button>
 
                 <p className="text-center text-xs text-zinc-500 mt-1">
-                  🔒 No spam. Instant access code will be emailed upon cluster provisioning.
+                  🔒 No spam. You will be notified first when we launch!
                 </p>
               </form>
             </div>
@@ -169,9 +179,9 @@ export default function WaitlistModal({ isOpen, onClose, selectedTier = "starter
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold text-white">Access Key Reserved!</h3>
+                <h3 className="text-2xl font-bold text-white">Early Access Reserved!</h3>
                 <p className="mt-2 text-sm text-zinc-300 leading-relaxed max-w-sm">
-                  We've added <span className="font-semibold text-blue-400">{email}</span> to the priority launch queue for the <span className="uppercase text-purple-300 font-semibold">{tier}</span> tier.
+                  We've registered <span className="font-semibold text-blue-400">{email}</span> for early access to <span className="font-semibold text-purple-300">{tool}</span>. You will be notified first when we launch!
                 </p>
               </div>
 

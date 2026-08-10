@@ -182,17 +182,18 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
               <FaGithub className="h-5 w-5" />
             </a>
 
-            <motion.button
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.96 }}
-              onClick={() => onOpenWaitlist?.("starter")}
-              className={`relative group flex items-center justify-center gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${scrolled ? "px-4 py-1.5 text-xs" : "px-5 py-2 text-sm"
-                }`}
+            <a
+              href="https://app.sreeai.qzz.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`relative group flex items-center justify-center gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${
+                scrolled ? "px-4 py-1.5 text-xs" : "px-5 py-2 text-sm"
+              }`}
             >
               <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
               <span className="relative z-10 font-semibold tracking-wide">Launch Console</span>
               <ArrowRight className="relative z-10 h-3.5 w-3.5 group-hover:translate-x-1 transition-transform duration-200" />
-            </motion.button>
+            </a>
           </motion.div>
 
           {/* Mobile Menu Toggle */}
@@ -242,16 +243,16 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
                   <span>GitHub Repository</span>
                 </a>
 
-                <button
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    onOpenWaitlist?.("starter");
-                  }}
+                <a
+                  href="https://app.sreeai.qzz.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="w-full flex items-center justify-center gap-2 rounded-xl py-3 px-5 font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition duration-200"
                 >
                   <span>Launch Console</span>
                   <ArrowRight className="h-4 w-4" />
-                </button>
+                </a>
               </div>
             </motion.div>
           )}

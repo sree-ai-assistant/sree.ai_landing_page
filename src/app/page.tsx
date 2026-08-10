@@ -203,12 +203,14 @@ export default function Home() {
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
 
-              <button
-                onClick={() => handleOpenWaitlist("starter")}
+              <a
+                href="https://app.sreeai.qzz.io"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 rounded-full px-8 py-4 font-semibold bg-white/10 hover:bg-white/15 border border-white/15 hover:border-white/30 text-white transition-all duration-200 hover:scale-105 cursor-pointer text-sm backdrop-blur-md"
               >
                 <span>Launch Console</span>
-              </button>
+              </a>
 
               <a
                 href="https://github.com/sree-ai-assistant/sree.ai"

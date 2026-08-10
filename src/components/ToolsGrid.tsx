@@ -31,6 +31,7 @@ const TOOLS = [
     gradient: "from-blue-600 via-indigo-600 to-purple-600",
     glow: "shadow-[0_0_30px_rgba(59,130,246,0.3)]",
     metrics: "Streaming: ~150 tokens/sec",
+    isEarlyAccess: false,
   },
   {
     id: "voice",
@@ -43,6 +44,7 @@ const TOOLS = [
     gradient: "from-purple-600 via-pink-600 to-rose-600",
     glow: "shadow-[0_0_30px_rgba(168,85,247,0.3)]",
     metrics: "Voice Latency: 42ms",
+    isEarlyAccess: false,
   },
   {
     id: "image",
@@ -55,6 +57,7 @@ const TOOLS = [
     gradient: "from-emerald-500 via-teal-600 to-cyan-600",
     glow: "shadow-[0_0_30px_rgba(16,185,129,0.3)]",
     metrics: "Render Speed: 3.2s",
+    isEarlyAccess: false,
   },
   {
     id: "video",
@@ -67,6 +70,7 @@ const TOOLS = [
     gradient: "from-amber-500 via-orange-600 to-red-600",
     glow: "shadow-[0_0_30px_rgba(245,158,11,0.3)]",
     metrics: "Camera Controls: Included",
+    isEarlyAccess: false,
   },
   {
     id: "3d",
@@ -75,10 +79,11 @@ const TOOLS = [
     description:
       "Automatically reconstruct 2D images and textures into textured 3D OBJ/GLTF spatial meshes for gaming, AR/VR, and e-commerce.",
     icon: Box,
-    badge: "GLTF / OBJ Mesh",
+    badge: "Upcoming Tool",
     gradient: "from-cyan-500 via-blue-600 to-indigo-600",
     glow: "shadow-[0_0_30px_rgba(6,182,212,0.3)]",
     metrics: "Mesh Speed: <15s",
+    isEarlyAccess: true,
   },
   {
     id: "humanizer",
@@ -87,10 +92,11 @@ const TOOLS = [
     description:
       "Refine synthetic text into natural human prose while removing robotic AI patterns, improving readability, and polishing grammar automatically.",
     icon: Wand2,
-    badge: "Bypass Patterns",
+    badge: "Upcoming Tool",
     gradient: "from-violet-600 via-purple-600 to-indigo-600",
     glow: "shadow-[0_0_30px_rgba(139,92,246,0.3)]",
     metrics: "Human Score: 99.2%",
+    isEarlyAccess: true,
   },
 ];
 
@@ -165,7 +171,13 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
                       </div>
                     </div>
 
-                    <span className="text-xs font-semibold tracking-wide text-zinc-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+                    <span
+                      className={`text-xs font-semibold tracking-wide px-3 py-1 rounded-full border ${
+                        tool.isEarlyAccess
+                          ? "bg-purple-500/10 text-purple-300 border-purple-500/20"
+                          : "bg-white/5 text-zinc-300 border-white/10"
+                      }`}
+                    >
                       {tool.badge}
                     </span>
                   </div>
@@ -191,13 +203,25 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
                     <span>{tool.metrics}</span>
                   </div>
 
-                  <button
-                    onClick={() => onOpenWaitlist?.("starter")}
-                    className="flex items-center gap-1.5 text-xs font-semibold text-white hover:text-blue-400 transition duration-150 group/btn"
-                  >
-                    <span>Try Tool</span>
-                    <ArrowRight className="h-3.5 w-3.5 group-hover/btn:translate-x-1 transition-transform duration-150" />
-                  </button>
+                  {tool.isEarlyAccess ? (
+                    <button
+                      onClick={() => onOpenWaitlist?.(tool.title)}
+                      className="flex items-center gap-1.5 text-xs font-semibold text-purple-300 hover:text-white bg-purple-500/10 border border-purple-500/20 hover:bg-purple-500/20 px-3 py-1.5 rounded-full transition duration-150 group/btn cursor-pointer"
+                    >
+                      <span>Get Notified</span>
+                      <ArrowRight className="h-3.5 w-3.5 group-hover/btn:translate-x-1 transition-transform duration-150" />
+                    </button>
+                  ) : (
+                    <a
+                      href="https://app.sreeai.qzz.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-xs font-semibold text-white hover:text-blue-400 transition duration-150 group/btn"
+                    >
+                      <span>Try Tool</span>
+                      <ArrowRight className="h-3.5 w-3.5 group-hover/btn:translate-x-1 transition-transform duration-150" />
+                    </a>
+                  )}
                 </div>
               </motion.div>
             );
@@ -226,12 +250,14 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
             </div>
           </div>
 
-          <button
-            onClick={() => onOpenWaitlist?.("starter")}
-            className="shrink-0 px-6 py-3 rounded-xl bg-white text-zinc-950 font-semibold text-sm hover:bg-zinc-200 transition duration-150 shadow-lg cursor-pointer"
+          <a
+            href="https://app.sreeai.qzz.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 px-6 py-3 rounded-xl bg-white text-zinc-950 font-semibold text-sm hover:bg-zinc-200 transition duration-150 shadow-lg cursor-pointer text-center"
           >
             Start Using Tools Free
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

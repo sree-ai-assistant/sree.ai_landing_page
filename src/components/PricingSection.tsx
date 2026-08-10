@@ -276,11 +276,11 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                   </p>
 
                   {/* Action Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => onOpenWaitlist?.(plan.id)}
-                    className={`mt-6 w-full py-3.5 px-6 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer shadow-lg ${
+                  <a
+                    href="https://app.sreeai.qzz.io/pricing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`mt-6 w-full block text-center py-3.5 px-6 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer shadow-lg ${
                       plan.buttonVariant === "primary"
                         ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-blue-500/30 hover:shadow-blue-500/50"
                         : plan.buttonVariant === "accent"
@@ -289,7 +289,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                     }`}
                   >
                     {plan.buttonText}
-                  </motion.button>
+                  </a>
 
                   {/* Specs Table */}
                   <div className="mt-8 rounded-2xl bg-white/5 border border-white/10 p-4 space-y-2.5 text-xs">
