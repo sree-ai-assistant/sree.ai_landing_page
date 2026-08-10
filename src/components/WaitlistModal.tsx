@@ -64,7 +64,7 @@ export default function WaitlistModal({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
           transition={{ type: "spring", stiffness: 320, damping: 28 }}
-          className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-white/10 bg-[#07051a]/95 p-6 md:p-8 shadow-[0_0_60px_rgba(59,130,246,0.3)] backdrop-blur-2xl z-10"
+          className="relative w-full max-w-lg overflow-hidden rounded-xl border border-white/10 bg-[#07051a]/95 p-6 md:p-8 shadow-[0_0_200px_rgba(59,130,246,0.3)] backdrop-blur-2xl z-10"
         >
           {/* Top glow ambient effect */}
           <div className="absolute -top-24 -left-24 h-48 w-48 rounded-full bg-blue-600/30 blur-3xl" />
@@ -73,7 +73,7 @@ export default function WaitlistModal({
           {/* Close button */}
           <button
             onClick={onClose}
-            className="absolute top-5 right-5 p-2 text-zinc-400 hover:text-white hover:bg-white/10 rounded-full transition duration-150"
+            className=" z-30 absolute top-5 right-5 p-2 text-zinc-400 hover:text-white hover:bg-white/10 rounded-full transition duration-150"
           >
             <FiX className="h-5 w-5" />
           </button>
@@ -84,7 +84,7 @@ export default function WaitlistModal({
                 <img
                   src="https://app.sreeai.qzz.io/Sree-Ai-icon-only-Sree-AI-brandmark.png"
                   alt="Sree AI Icon"
-                  className="h-8 w-8 object-contain"
+                  className="h-8 w-8 object-contain rounded-lg"
                 />
                 <span className="text-xs uppercase tracking-widest font-semibold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20">
                   Early Access Waitlist
@@ -115,11 +115,10 @@ export default function WaitlistModal({
                         key={item.id}
                         type="button"
                         onClick={() => setTool(item.id)}
-                        className={`py-2.5 px-3 rounded-xl text-xs font-semibold border transition-all duration-200 ${
-                          tool === item.id || tool.includes(item.id)
-                            ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
-                            : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
-                        }`}
+                        className={`py-2.5 px-3 rounded-lg text-xs font-semibold border transition-all duration-200 ${tool === item.id || tool.includes(item.id)
+                          ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                          : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
+                          }`}
                       >
                         {item.label}
                       </button>
@@ -138,7 +137,7 @@ export default function WaitlistModal({
                       placeholder="alex@company.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-200"
+                      className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-200"
                     />
                   </div>
                 </div>
@@ -148,7 +147,7 @@ export default function WaitlistModal({
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={loading}
-                  className="mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 py-3.5 px-6 font-semibold text-white shadow-[0_0_25px_rgba(59,130,246,0.4)] transition duration-200 cursor-pointer"
+                  className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 py-3.5 px-6 font-semibold text-white shadow-[0_0_25px_rgba(59,130,246,0.4)] transition duration-200 cursor-pointer"
                 >
                   {loading ? (
                     <span className="flex items-center gap-2 text-sm">
@@ -187,7 +186,7 @@ export default function WaitlistModal({
 
               <button
                 onClick={handleReset}
-                className="mt-4 rounded-xl bg-white/10 px-6 py-2.5 text-xs font-semibold text-white hover:bg-white/20 transition duration-150"
+                className="mt-4 rounded-lg bg-white/10 px-6 py-2.5 text-xs font-semibold text-white hover:bg-white/20 transition duration-150"
               >
                 Back to Sree AI Platform
               </button>

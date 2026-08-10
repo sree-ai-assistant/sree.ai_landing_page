@@ -108,6 +108,7 @@ export default function Home() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       autoResize: true,
     });
+    (window as any).lenis = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -168,7 +169,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-blue-500/20 text-blue-300 text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.2)]"
+              className="text-shadow-xs text-shadow-black inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-blue-500/20 text-blue-300 text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.2)]"
             >
               <Sparkles className="h-3.5 w-3.5 text-blue-400" />
               <span>UNIFIED AI PLATFORM & MULTI-TOOL SUITE</span>
@@ -206,6 +207,14 @@ export default function Home() {
             >
               <a
                 href="#tools"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (typeof window !== "undefined" && (window as any).lenis) {
+                    (window as any).lenis.scrollTo("#tools", { offset: -80, duration: 1.2 });
+                  } else {
+                    document.querySelector("#tools")?.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="relative group flex items-center justify-center gap-2.5 rounded-full px-8 py-4 font-semibold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-[0_0_30px_rgba(59,130,246,0.35)] hover:shadow-[0_0_45px_rgba(59,130,246,0.55)] transition-all duration-300 hover:scale-105 cursor-pointer text-sm"
               >
                 <span>Explore AI Tools</span>

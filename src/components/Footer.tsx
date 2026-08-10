@@ -9,17 +9,43 @@ interface FooterProps {
 }
 
 export default function Footer({ onOpenWaitlist }: FooterProps) {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (href === "#" || href === "/") {
+      if (typeof window !== "undefined" && (window as any).lenis) {
+        (window as any).lenis.scrollTo(0, { duration: 1.2 });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    } else {
+      const targetElement = document.querySelector(href);
+      if (targetElement) {
+        if (typeof window !== "undefined" && (window as any).lenis) {
+          (window as any).lenis.scrollTo(targetElement, { offset: -70, duration: 1.2 });
+        } else {
+          const headerOffset = 70;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }
+    }
+  };
+
   return (
-    <footer className="relative border-t border-white/10 bg-[#030014] text-zinc-400 overflow-hidden py-12 md:py-16">
+    <footer className="relative border-t border-white/10 bg-[#030014] text-zinc-400 overflow-hidden py-6">
       {/* Background Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[200px] bg-gradient-to-t from-blue-600/10 via-purple-600/5 to-transparent blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-6 border-b border-white/10">
           {/* Column 1: Brand & Logo (Takes 2 cols on desktop) */}
           <div className="lg:col-span-2 space-y-4 pr-0 lg:pr-8">
-            <a href="#" className="inline-block">
+            <a href="#" onClick={(e) => handleNavClick(e, "#")} className="inline-block">
               <img
                 src="https://app.sreeai.qzz.io/Sree-ai-Primary-logo.png"
                 alt="Sree AI Platform Logo"
@@ -71,27 +97,27 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a href="#" className="hover:text-white transition duration-150">
+                <a href="#" onClick={(e) => handleNavClick(e, "#")} className="hover:text-white transition duration-150">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#tools" className="hover:text-white transition duration-150">
+                <a href="#tools" onClick={(e) => handleNavClick(e, "#tools")} className="hover:text-white transition duration-150">
                   AI Tools
                 </a>
               </li>
               <li>
-                <a href="#architecture" className="hover:text-white transition duration-150">
+                <a href="#architecture" onClick={(e) => handleNavClick(e, "#architecture")} className="hover:text-white transition duration-150">
                   Architecture
                 </a>
               </li>
               <li>
-                <a href="#pricing" className="hover:text-white transition duration-150">
+                <a href="#pricing" onClick={(e) => handleNavClick(e, "#pricing")} className="hover:text-white transition duration-150">
                   Pricing
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition duration-150">
+                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
                   FAQ
                 </a>
               </li>
@@ -117,7 +143,7 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
               </li>
               <li>
                 <a
-                  href="https://app.sreeai.qzz.io"
+                  href="https://app.sreeai.qzz.io/voice"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition duration-150 flex items-center gap-1.5"
@@ -128,7 +154,7 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
               </li>
               <li>
                 <a
-                  href="https://app.sreeai.qzz.io"
+                  href="https://app.sreeai.qzz.io/image"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition duration-150 flex items-center gap-1.5"
@@ -139,7 +165,7 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
               </li>
               <li>
                 <a
-                  href="https://app.sreeai.qzz.io"
+                  href="https://app.sreeai.qzz.io/video"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition duration-150 flex items-center gap-1.5"
@@ -215,7 +241,7 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
             <img
               src="https://app.sreeai.qzz.io/Sree-Ai-icon-only-Sree-AI-brandmark.png"
               alt="Sree AI Icon"
-              className="h-4 w-4 object-contain opacity-70"
+              className="h-4 w-4 object-contain opacity-70 rounded-full"
             />
             <p>
               © {new Date().getFullYear()} Sree AI Platform Inc. All rights reserved.
