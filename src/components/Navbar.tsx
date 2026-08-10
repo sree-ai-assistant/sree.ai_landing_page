@@ -26,7 +26,7 @@ interface NavbarProps {
 export default function Navbar({ onOpenWaitlist }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("#");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const { scrollY } = useScroll();
@@ -42,18 +42,30 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
   // Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = NAV_ITEMS.map((item) => item.href.substring(1));
+      if (window.scrollY < 300) {
+        setActiveSection("#");
+        return;
+      }
+
+      const sections = NAV_ITEMS.filter((item) => item.href !== "#").map((item) => item.href.substring(1));
       const scrollPosition = window.scrollY + 200;
 
+      let matched = false;
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && el.offsetTop <= scrollPosition) {
           setActiveSection(`#${sections[i]}`);
+          matched = true;
           break;
         }
       }
+
+      if (!matched) {
+        setActiveSection("#");
+      }
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
