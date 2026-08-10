@@ -12,7 +12,7 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { name: "Features", href: "#features" },
+  { name: "Home", href: "#" },
   { name: "AI Tools", href: "#tools" },
   { name: "Architecture", href: "#architecture" },
   { name: "Pricing", href: "#pricing" },
@@ -77,7 +77,7 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
         transition={springTransition}
         animate={{
           maxWidth: scrolled ? "980px" : "100%",
-          height: scrolled ? "58px" : "60px",
+          height: scrolled ? "58px" : "70px",
           borderRadius: scrolled ? "9999px" : "0px",
           boxShadow: scrolled
             ? "0 16px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px 2px rgba(59, 130, 246, 0.2), 0 0 1px 1px rgba(255, 255, 255, 0.15)"
@@ -137,8 +137,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
                       layoutId="navbar-pill-indicator"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       className={`absolute inset-0 rounded-full ${isActive && hoveredIndex === null
-                          ? "bg-blue-500/15 border border-blue-500/30 shadow-[0_0_12px_rgba(59,130,246,0.25)]"
-                          : "bg-white/10 border border-white/15"
+                        ? "bg-blue-500/15 border border-blue-500/30 shadow-[0_0_12px_rgba(59,130,246,0.25)]"
+                        : "bg-white/10 border border-white/15"
                         }`}
                     />
                   )}
