@@ -112,6 +112,16 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
     { name: "Support SLA Priority", free: "Standard", starter: "Standard", pro: "24/7 VIP Priority" },
   ];
 
+  const handleToggleComparison = () => {
+    setShowComparison((prev) => !prev);
+    setTimeout(() => {
+      window.dispatchEvent(new Event("resize"));
+    }, 50);
+    setTimeout(() => {
+      window.dispatchEvent(new Event("resize"));
+    }, 450);
+  };
+
   return (
     <section id="pricing" className="relative py-24 md:py-32 overflow-hidden">
       {/* Glow aura */}
@@ -320,7 +330,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
         <div className="mt-20">
           <div className="text-center">
             <button
-              onClick={() => setShowComparison(!showComparison)}
+              onClick={handleToggleComparison}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold text-sm transition duration-200 cursor-pointer shadow-lg"
             >
               <span>{showComparison ? "Hide Plan Details" : "Compare Plan Details"}</span>
@@ -339,6 +349,8 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
+                onUpdate={() => window.dispatchEvent(new Event("resize"))}
+                onAnimationComplete={() => window.dispatchEvent(new Event("resize"))}
                 className="overflow-hidden mt-8"
               >
                 <div className="rounded-3xl border border-white/15 bg-[#07051a]/90 backdrop-blur-2xl p-4 md:p-8 overflow-x-auto shadow-2xl">

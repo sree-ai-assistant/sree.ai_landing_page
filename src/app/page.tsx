@@ -100,11 +100,12 @@ export default function Home() {
     root.style.colorScheme = "dark";
   }, []);
 
-  // Initialize Lenis 60fps smooth scroll
+  // Initialize Lenis 60fps smooth scroll with dynamic ResizeObserver
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      autoResize: true,
     });
 
     function raf(time: number) {
@@ -114,7 +115,14 @@ export default function Home() {
 
     requestAnimationFrame(raf);
 
+    // Observe body height changes so expandable accordions instantly recalculate scroll boundaries
+    const resizeObserver = new ResizeObserver(() => {
+      lenis.resize();
+    });
+    resizeObserver.observe(document.body);
+
     return () => {
+      resizeObserver.disconnect();
       lenis.destroy();
     };
   }, []);
