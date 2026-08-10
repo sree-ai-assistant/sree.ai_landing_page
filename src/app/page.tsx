@@ -128,23 +128,29 @@ export default function Home() {
       <main className="relative w-full">
         {/* HERO SECTION WITH PRESERVED BACKGROUND VIDEO */}
         <section className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-between pt-28 md:pt-36 pb-12 overflow-hidden border-b border-white/5">
-          {/* Background Blackhole Video Layer (Top Centered matching reference) */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1400px] h-[550px] sm:h-[650px] md:h-[720px] z-0 overflow-hidden pointer-events-none opacity-90 mix-blend-screen">
+          {/* Background Blackhole Video Layer (Full-width with radial vignette mask for seamless side blending) */}
+          <div
+            className="absolute top-0 inset-x-0 w-full h-[600px] sm:h-[720px] md:h-[850px] z-0 overflow-hidden pointer-events-none opacity-90 mix-blend-screen"
+            style={{
+              WebkitMaskImage: "radial-gradient(ellipse 90% 75% at 50% 0%, black 35%, transparent 100%)",
+              maskImage: "radial-gradient(ellipse 90% 75% at 50% 0%, black 35%, transparent 100%)",
+            }}
+          >
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-full object-cover object-bottom rotate-180 scale-105"
+              className="w-full h-full object-cover rotate-180 scale-110"
             >
               <source src="/blackhole.webm" type="video/webm" />
               <source src="/hero-bg.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030014]/40 to-[#030014]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#030014]/20 to-[#030014]" />
           </div>
 
-          {/* Glowing purple aura light matching top portal */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] md:w-[900px] h-[350px] bg-gradient-to-b from-purple-600/30 via-indigo-600/20 to-transparent blur-[120px] pointer-events-none rounded-full" />
+          {/* Glowing purple ambient portal aura */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-[400px] bg-gradient-to-b from-purple-600/35 via-indigo-600/20 to-transparent blur-[140px] pointer-events-none rounded-full" />
 
           {/* Hero Content */}
           <div className="relative z-10 max-w-6xl mx-auto px-6 text-center flex flex-col items-center justify-center my-auto">

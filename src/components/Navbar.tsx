@@ -69,26 +69,25 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
     <motion.header
       layout
       transition={springTransition}
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none transition-all duration-300 ${
-        scrolled ? "pt-3 md:pt-4 px-3 md:px-6" : "pt-0 px-0"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none transition-all duration-300 ${scrolled ? "pt-3 md:pt-4 px-3 md:px-6" : "pt-0 px-0"
+        }`}
     >
       <motion.nav
         layout
         transition={springTransition}
         animate={{
           maxWidth: scrolled ? "980px" : "100%",
-          height: scrolled ? "58px" : "74px",
+          height: scrolled ? "58px" : "60px",
           borderRadius: scrolled ? "9999px" : "0px",
           boxShadow: scrolled
             ? "0 16px 40px -10px rgba(0, 0, 0, 0.8), 0 0 25px 2px rgba(59, 130, 246, 0.2), 0 0 1px 1px rgba(255, 255, 255, 0.15)"
             : "none",
           backgroundColor: scrolled ? "rgba(3, 0, 20, 0.9)" : "transparent",
           borderColor: scrolled ? "rgba(59, 130, 246, 0.25)" : "transparent",
+
         }}
-        className={`pointer-events-auto w-full relative overflow-hidden transition-colors duration-300 flex items-center border ${
-          scrolled ? "backdrop-blur-2xl" : "backdrop-blur-none"
-        }`}
+        className={` backdrop-blur-xl pointer-events-auto w-full relative overflow-hidden transition-colors duration-300 flex items-center border ${scrolled ? "backdrop-blur-2xl" : "backdrop-blur-none"
+          }`}
       >
         {/* Subtle top glow highlight */}
         {scrolled && (
@@ -97,9 +96,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
 
         {/* Desktop Container */}
         <div
-          className={`h-full flex items-center justify-between transition-all duration-300 ${
-            scrolled ? "w-full px-5 md:px-6" : "w-full max-w-7xl mx-auto px-6 md:px-10"
-          }`}
+          className={`h-full flex items-center justify-between transition-all duration-300 ${scrolled ? "w-full px-5 md:px-6" : "w-full max-w-7xl mx-auto px-6 md:px-10"
+            }`}
         >
           {/* Official Primary Logo */}
           <motion.a
@@ -119,9 +117,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
           <motion.div
             layout
             transition={springTransition}
-            className={`hidden md:flex items-center text-sm font-medium transition-all duration-300 ${
-              scrolled ? "gap-4 lg:gap-6 text-zinc-300" : "gap-7 lg:gap-9 text-zinc-300"
-            }`}
+            className={`hidden md:flex items-center text-sm font-medium transition-all duration-300 ${scrolled ? "gap-4 lg:gap-6 text-zinc-300" : "gap-7 lg:gap-9 text-zinc-300"
+              }`}
           >
             {NAV_ITEMS.map((item, idx) => {
               const isActive = activeSection === item.href;
@@ -139,17 +136,15 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
                     <motion.div
                       layoutId="navbar-pill-indicator"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      className={`absolute inset-0 rounded-full ${
-                        isActive && hoveredIndex === null
+                      className={`absolute inset-0 rounded-full ${isActive && hoveredIndex === null
                           ? "bg-blue-500/15 border border-blue-500/30 shadow-[0_0_12px_rgba(59,130,246,0.25)]"
                           : "bg-white/10 border border-white/15"
-                      }`}
+                        }`}
                     />
                   )}
                   <span
-                    className={`relative z-10 ${
-                      isActive ? "text-white font-semibold" : "text-zinc-300"
-                    }`}
+                    className={`relative z-10 ${isActive ? "text-white font-semibold" : "text-zinc-300"
+                      }`}
                   >
                     {item.name}
                   </span>
@@ -162,9 +157,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
           <motion.div
             layout
             transition={springTransition}
-            className={`hidden md:flex items-center transition-all duration-300 ${
-              scrolled ? "gap-3" : "gap-4"
-            }`}
+            className={`hidden md:flex items-center transition-all duration-300 ${scrolled ? "gap-3" : "gap-4"
+              }`}
           >
             <a
               href="https://github.com/sree-ai-assistant/sree.ai"
@@ -180,9 +174,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               onClick={() => onOpenWaitlist?.("starter")}
-              className={`relative group flex items-center justify-center gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${
-                scrolled ? "px-4 py-1.5 text-xs" : "px-5 py-2 text-sm"
-              }`}
+              className={`relative group flex items-center justify-center gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${scrolled ? "px-4 py-1.5 text-xs" : "px-5 py-2 text-sm"
+                }`}
             >
               <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
               <span className="relative z-10 font-semibold tracking-wide">Launch Console</span>
