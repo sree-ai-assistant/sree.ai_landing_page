@@ -96,7 +96,7 @@ export default function WaitlistModal({
                   Join Upcoming Tools Early Access
                 </h3>
                 <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
-                  Get early access to our upcoming <strong className="text-white">2D to 3D Convertor</strong> and <strong className="text-white">AI Humanizer & Enhancer</strong> tools. You will be notified first when we launch!
+                  Get early access to our upcoming <strong className="text-white">2D to 3D Convertor</strong> and <strong className="text-white">AI Humanizer & Enhancer</strong> tools. Once access is available, we will let you know right away!
                 </p>
               </div>
 
@@ -158,13 +158,13 @@ export default function WaitlistModal({
                   ) : (
                     <span className="flex items-center gap-2 text-sm font-semibold tracking-wide">
                       <FiSend className="h-4 w-4" />
-                      Get Notified First On Launch
+                      Request Early Access
                     </span>
                   )}
                 </motion.button>
 
                 <p className="text-center text-xs text-zinc-500 mt-1">
-                  🔒 No spam. You will be notified first when we launch!
+                  🔒 No spam. Once access is available, we will let you know right away!
                 </p>
               </form>
             </div>
@@ -181,7 +181,7 @@ export default function WaitlistModal({
               <div>
                 <h3 className="text-2xl font-bold text-white">Early Access Reserved!</h3>
                 <p className="mt-2 text-sm text-zinc-300 leading-relaxed max-w-sm">
-                  We've registered <span className="font-semibold text-blue-400">{email}</span> for early access to <span className="font-semibold text-purple-300">{tool}</span>. You will be notified first when we launch!
+                  We've registered <span className="font-semibold text-blue-400">{email}</span> for early access to <span className="font-semibold text-purple-300">{tool}</span>. Once access is available, we will let you know right away!
                 </p>
               </div>
 
