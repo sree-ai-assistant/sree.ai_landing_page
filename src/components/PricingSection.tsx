@@ -123,7 +123,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
   };
 
   return (
-    <section id="pricing" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="pricing" className="relative py-12  overflow-hidden">
       {/* Glow aura */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-indigo-600/10 blur-[150px] pointer-events-none rounded-full" />
 
@@ -169,9 +169,8 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
             className="mt-8 flex items-center justify-center gap-4"
           >
             <span
-              className={`text-sm font-medium transition-colors cursor-pointer ${
-                !annualBilling ? "text-white font-semibold" : "text-zinc-400"
-              }`}
+              className={`text-sm font-medium transition-colors cursor-pointer ${!annualBilling ? "text-white font-semibold" : "text-zinc-400"
+                }`}
               onClick={() => setAnnualBilling(false)}
             >
               Monthly
@@ -185,18 +184,16 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
               <motion.div
                 layout
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                className={`h-6 w-6 rounded-full bg-gradient-to-r ${
-                  annualBilling
-                    ? "from-purple-500 to-indigo-500 translate-x-8 shadow-[0_0_12px_rgba(168,85,247,0.5)]"
-                    : "from-blue-500 to-indigo-500 translate-x-0 shadow-[0_0_12px_rgba(59,130,246,0.5)]"
-                }`}
+                className={`h-6 w-6 rounded-full bg-gradient-to-r ${annualBilling
+                  ? "from-purple-500 to-indigo-500 translate-x-8 shadow-[0_0_12px_rgba(168,85,247,0.5)]"
+                  : "from-blue-500 to-indigo-500 translate-x-0 shadow-[0_0_12px_rgba(59,130,246,0.5)]"
+                  }`}
               />
             </button>
 
             <span
-              className={`flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${
-                annualBilling ? "text-white font-semibold" : "text-zinc-400"
-              }`}
+              className={`flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${annualBilling ? "text-white font-semibold" : "text-zinc-400"
+                }`}
               onClick={() => setAnnualBilling(true)}
             >
               <span>Annually</span>
@@ -219,23 +216,21 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative flex flex-col justify-between rounded-3xl p-8 backdrop-blur-2xl transition-all duration-300 ${
-                  plan.badge === "BEST VALUE"
-                    ? "border-2 border-blue-500/50 bg-[#0b0826]/90 shadow-[0_0_50px_rgba(59,130,246,0.25)] lg:-translate-y-2"
-                    : plan.badge === "UNLEASHED"
+                className={`relative flex flex-col justify-between rounded-3xl p-8 backdrop-blur-2xl transition-all duration-300 ${plan.badge === "BEST VALUE"
+                  ? "border-2 border-blue-500/50 bg-[#0b0826]/90 shadow-[0_0_50px_rgba(59,130,246,0.25)] lg:-translate-y-2"
+                  : plan.badge === "UNLEASHED"
                     ? "border border-purple-500/40 bg-[#090621]/80 shadow-[0_0_40px_rgba(168,85,247,0.2)]"
                     : "border border-white/10 bg-[#07051a]/70 hover:border-white/20"
-                }`}
+                  }`}
               >
                 {/* Top Badge */}
                 {plan.badge && (
                   <div className="absolute -top-3.5 right-6">
                     <span
-                      className={`px-3 py-1 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-lg ${
-                        plan.badge === "BEST VALUE"
-                          ? "bg-blue-600 text-white shadow-blue-500/40"
-                          : "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-purple-500/40"
-                      }`}
+                      className={`px-3 py-1 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-lg ${plan.badge === "BEST VALUE"
+                        ? "bg-blue-600 text-white shadow-blue-500/40"
+                        : "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-purple-500/40"
+                        }`}
                     >
                       {plan.badge}
                     </span>
@@ -290,13 +285,12 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                     href="https://app.sreeai.qzz.io/pricing"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`mt-6 w-full block text-center py-3.5 px-6 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer shadow-lg ${
-                      plan.buttonVariant === "primary"
-                        ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-blue-500/30 hover:shadow-blue-500/50"
-                        : plan.buttonVariant === "accent"
+                    className={`mt-6 w-full block text-center py-3.5 px-6 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer shadow-lg ${plan.buttonVariant === "primary"
+                      ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-blue-500/30 hover:shadow-blue-500/50"
+                      : plan.buttonVariant === "accent"
                         ? "bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 text-white shadow-purple-500/30 hover:shadow-purple-500/50"
                         : "bg-white/10 hover:bg-white/20 text-white border border-white/15"
-                    }`}
+                      }`}
                   >
                     {plan.buttonText}
                   </a>
@@ -335,9 +329,8 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
             >
               <span>{showComparison ? "Hide Plan Details" : "Compare Plan Details"}</span>
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-300 ${
-                  showComparison ? "rotate-180" : "rotate-0"
-                }`}
+                className={`h-4 w-4 transition-transform duration-300 ${showComparison ? "rotate-180" : "rotate-0"
+                  }`}
               />
             </button>
           </div>

@@ -26,6 +26,7 @@ import Navbar from "@/components/Navbar";
 import ToolsGrid from "@/components/ToolsGrid";
 import PricingSection from "@/components/PricingSection";
 import FaqSection from "@/components/FaqSection";
+import Footer from "@/components/Footer";
 import WaitlistModal from "@/components/WaitlistModal";
 
 // AI Models & Tech Stack Logos Marquee
@@ -402,37 +403,8 @@ export default function Home() {
             {/* FAQ ACCORDION SECTION */}
             <FaqSection />
 
-            {/* FOOTER WITH OFFICIAL LOGOS */}
-            <footer className="relative border-t border-white/10 bg-[#030014] py-16">
-              <div className="max-w-7xl mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-8">
-                {/* Logo & Copyright */}
-                <div className="flex flex-col items-center md:items-start gap-3">
-                  <img
-                    src="https://app.sreeai.qzz.io/Sree-ai-Primary-logo.png"
-                    alt="Sree AI Logo"
-                    className="h-9 w-auto object-contain"
-                  />
-                  <p className="text-xs text-zinc-500">
-                    © {new Date().getFullYear()} Sree AI Platform Inc. Apache 2.0 Open Source License.
-                  </p>
-                </div>
-
-                {/* Nav Links */}
-                <div className="flex flex-wrap items-center gap-6 text-xs text-zinc-400">
-                  <a href="#features" className="hover:text-white transition">Features</a>
-                  <a href="#tools" className="hover:text-white transition">AI Tools</a>
-                  <a href="#architecture" className="hover:text-white transition">Architecture</a>
-                  <a href="#pricing" className="hover:text-white transition">Pricing</a>
-                  <a href="#faq" className="hover:text-white transition">FAQ</a>
-                </div>
-
-                {/* Status Indicator */}
-                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>All Tool Clusters Operational</span>
-                </div>
-              </div>
-            </footer>
+            {/* PROFESSIONAL MULTI-COLUMN FOOTER */}
+            <Footer onOpenWaitlist={handleOpenWaitlist} />
           </div>
         </div>
       </main>
