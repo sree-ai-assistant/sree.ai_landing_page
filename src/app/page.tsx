@@ -86,10 +86,10 @@ const testimonials = [
 
 export default function Home() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
-  const [selectedTier, setSelectedTier] = useState("starter");
+  const [selectedTool, setSelectedTool] = useState("2D to 3D Convertor");
 
-  const handleOpenWaitlist = (tier?: string) => {
-    if (tier) setSelectedTier(tier);
+  const handleOpenWaitlist = (toolName?: string) => {
+    if (toolName) setSelectedTool(toolName);
     setWaitlistOpen(true);
   };
 
@@ -433,7 +433,7 @@ export default function Home() {
       <WaitlistModal
         isOpen={waitlistOpen}
         onClose={() => setWaitlistOpen(false)}
-        selectedTier={selectedTier}
+        selectedTool={selectedTool}
       />
     </div>
   );
