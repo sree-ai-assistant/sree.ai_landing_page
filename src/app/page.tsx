@@ -362,7 +362,7 @@ export default function Home() {
             </section>
 
             {/* TESTIMONIALS SECTION */}
-            <section className="relative py-24 border-t border-white/5 overflow-hidden">
+            <section className="hidden relative py-24 border-t border-white/5 overflow-hidden">
               <div className="max-w-7xl mx-auto px-6 md:px-10">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-semibold uppercase tracking-widest mb-4">

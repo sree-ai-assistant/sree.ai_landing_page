@@ -129,8 +129,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
           boxShadow: scrolled || mobileMenuOpen
             ? "0 16px 40px -10px rgba(0, 0, 0, 0.9), 0 0 25px 2px rgba(59, 130, 246, 0.25), 0 0 1px 1px rgba(255, 255, 255, 0.15)"
             : "none",
-          backgroundColor: scrolled || mobileMenuOpen ? "rgba(3, 0, 20, 0.95)" : "transparent",
-          borderColor: scrolled || mobileMenuOpen ? "rgba(59, 130, 246, 0.25)" : "transparent",
+          backgroundColor: scrolled || mobileMenuOpen ? "rgba(3, 0, 20, 0.95)" : "rgba(3, 0, 20, 0)",
+          borderColor: scrolled || mobileMenuOpen ? "rgba(59, 130, 246, 0.25)" : "rgba(59, 130, 246, 0)",
         }}
         className={`backdrop-blur-xl pointer-events-auto w-full relative overflow-hidden transition-colors duration-300 flex flex-col border ${
           scrolled || mobileMenuOpen ? "backdrop-blur-2xl" : "backdrop-blur-none"
