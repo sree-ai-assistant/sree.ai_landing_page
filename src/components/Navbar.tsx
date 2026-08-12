@@ -208,34 +208,34 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
               scrolled ? "gap-2 md:gap-3" : "gap-2 md:gap-4"
             }`}
           >
-            {/* GitHub Icon: Hidden below 820px, Visible at >= 820px */}
+            {/* GitHub Icon: Hidden below 550px, Visible at >= 550px */}
             <a
               href="https://github.com/sree-ai-assistant/sree.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden min-[820px]:flex text-zinc-400 hover:text-white p-1.5 md:p-2 rounded-full hover:bg-white/5 transition duration-200"
+              className="hidden min-[550px]:flex text-zinc-400 hover:text-white p-1.5 md:p-2 rounded-full hover:bg-white/5 transition duration-200"
               aria-label="GitHub Repository"
             >
               <FaGithub className="h-4 sm:h-5 w-4 sm:w-5" />
             </a>
 
-            {/* Launch Console Button: Icon-only (->) between 500px-820px, full text at >= 820px */}
+            {/* Launch Console Button: Icon-only (->) between 500px-550px (< 550px), full text at >= 550px */}
             <a
               href="https://app.sreeai.qzz.io"
               target="_blank"
               rel="noopener noreferrer"
               className={`relative group flex items-center justify-center gap-1.5 md:gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${
                 scrolled
-                  ? "p-2 min-[820px]:px-4 min-[820px]:py-1.5 text-xs"
-                  : "p-2.5 min-[820px]:px-5 min-[820px]:py-2 text-xs md:text-sm"
+                  ? "p-2 min-[550px]:px-4 min-[550px]:py-1.5 text-xs"
+                  : "p-2.5 min-[550px]:px-5 min-[550px]:py-2 text-xs md:text-sm"
               }`}
               title="Launch Console"
             >
               <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative z-10 font-semibold tracking-wide hidden min-[820px]:inline">
+              <span className="relative z-10 font-semibold tracking-wide hidden min-[550px]:inline">
                 Launch Console
               </span>
-              <ArrowRight className="relative z-10 h-4 w-4 min-[820px]:h-3.5 min-[820px]:w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
+              <ArrowRight className="relative z-10 h-4 w-4 min-[550px]:h-3.5 min-[550px]:w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
           </motion.div>
 
