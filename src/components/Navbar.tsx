@@ -109,9 +109,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
     <motion.header
       layout
       transition={springTransition}
-      className={`fixed top-0 left-0 right-0 z-50 flex flex-col items-center pointer-events-none transition-all duration-300 ${
-        scrolled ? "pt-3 md:pt-4 px-3 md:px-6" : "pt-0 px-0"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 flex flex-col items-center pointer-events-none transition-all duration-300 ${scrolled ? "pt-3 md:pt-4 px-3 md:px-6" : "pt-0 px-0"
+        }`}
     >
       <motion.nav
         layout
@@ -124,17 +123,16 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
               ? "28px"
               : "0px 0px 24px 24px"
             : scrolled
-            ? "9999px"
-            : "0px",
+              ? "9999px"
+              : "0px",
           boxShadow: scrolled || mobileMenuOpen
             ? "0 16px 40px -10px rgba(0, 0, 0, 0.9), 0 0 25px 2px rgba(59, 130, 246, 0.25), 0 0 1px 1px rgba(255, 255, 255, 0.15)"
             : "none",
           backgroundColor: scrolled || mobileMenuOpen ? "rgba(3, 0, 20, 0.95)" : "rgba(3, 0, 20, 0)",
           borderColor: scrolled || mobileMenuOpen ? "rgba(59, 130, 246, 0.25)" : "rgba(59, 130, 246, 0)",
         }}
-        className={`backdrop-blur-xl pointer-events-auto w-full relative overflow-hidden transition-colors duration-300 flex flex-col border ${
-          scrolled || mobileMenuOpen ? "backdrop-blur-2xl" : "backdrop-blur-none"
-        }`}
+        className={`backdrop-blur-xl pointer-events-auto w-full relative overflow-hidden transition-colors duration-300 flex flex-col border ${scrolled || mobileMenuOpen ? "backdrop-blur-2xl" : "backdrop-blur-none"
+          }`}
       >
         {/* Subtle top glow highlight */}
         {(scrolled || mobileMenuOpen) && (
@@ -143,11 +141,9 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
 
         {/* Top Navbar Row */}
         <div
-          className={`w-full flex items-center justify-between transition-all duration-300 shrink-0 ${
-            scrolled ? "h-[58px]" : "h-[70px]"
-          } ${
-            scrolled ? "px-3.5 sm:px-5 md:px-6" : "w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10"
-          }`}
+          className={`w-full flex items-center justify-between transition-all duration-300 shrink-0 ${scrolled ? "h-[58px]" : "h-[70px]"
+            } ${scrolled ? "px-3.5 sm:px-5 md:px-6" : "w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10"
+            }`}
         >
           {/* Official Primary Logo */}
           <motion.a
@@ -168,11 +164,10 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
           <motion.div
             layout
             transition={springTransition}
-            className={`hidden min-[500px]:flex items-center text-xs md:text-sm font-medium transition-all duration-300 ${
-              scrolled
+            className={`hidden min-[500px]:flex items-center text-xs md:text-sm font-medium transition-all duration-300 ${scrolled
                 ? "gap-1 sm:gap-2.5 min-[700px]:gap-4 lg:gap-6 text-zinc-300"
                 : "gap-1.5 sm:gap-3 min-[700px]:gap-6 lg:gap-9 text-zinc-300"
-            }`}
+              }`}
           >
             {NAV_ITEMS.map((item, idx) => {
               const isActive = activeSection === item.href;
@@ -191,11 +186,10 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
                     <motion.div
                       layoutId="navbar-pill-indicator"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      className={`absolute inset-0 rounded-full ${
-                        isActive && hoveredIndex === null
+                      className={`absolute inset-0 rounded-full ${isActive && hoveredIndex === null
                           ? "bg-blue-500/15 border border-blue-500/30 shadow-[0_0_12px_rgba(59,130,246,0.25)]"
                           : "bg-white/10 border border-white/15"
-                      }`}
+                        }`}
                     />
                   )}
                   <span
@@ -212,9 +206,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
           <motion.div
             layout
             transition={springTransition}
-            className={`hidden min-[500px]:flex items-center transition-all duration-300 ${
-              scrolled ? "gap-2 md:gap-3" : "gap-2 md:gap-4"
-            }`}
+            className={`hidden min-[500px]:flex items-center transition-all duration-300 ${scrolled ? "gap-2 md:gap-3" : "gap-2 md:gap-4"
+              }`}
           >
             {/* GitHub Icon: Hidden below 550px, Visible at >= 550px */}
             <a
@@ -232,11 +225,10 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
               href="https://app.sreeai.qzz.io"
               target="_blank"
               rel="noopener noreferrer"
-              className={`relative group flex items-center justify-center gap-1.5 md:gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${
-                scrolled
+              className={`relative group flex items-center justify-center gap-1.5 md:gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${scrolled
                   ? "p-2 min-[820px]:px-4 min-[820px]:py-1.5 text-xs"
                   : "p-2.5 min-[820px]:px-5 min-[820px]:py-2 text-xs md:text-sm"
-              }`}
+                }`}
               title="Launch Console"
             >
               <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
