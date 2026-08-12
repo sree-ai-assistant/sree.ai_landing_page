@@ -138,7 +138,7 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
         {/* Navbar Container */}
         <div
           className={`h-full flex items-center justify-between transition-all duration-300 ${
-            scrolled ? "w-full px-4 sm:px-5 md:px-6" : "w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10"
+            scrolled ? "w-full px-3.5 sm:px-5 md:px-6" : "w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10"
           }`}
         >
           {/* Official Primary Logo */}
@@ -156,12 +156,14 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
             />
           </motion.a>
 
-          {/* Desktop Nav Links: Visible above 600px */}
+          {/* Desktop Nav Links: Visible at >= 500px */}
           <motion.div
             layout
             transition={springTransition}
-            className={`hidden min-[600px]:flex items-center text-xs md:text-sm font-medium transition-all duration-300 ${
-              scrolled ? "gap-2 min-[700px]:gap-4 lg:gap-6 text-zinc-300" : "gap-3 min-[700px]:gap-6 lg:gap-9 text-zinc-300"
+            className={`hidden min-[500px]:flex items-center text-xs md:text-sm font-medium transition-all duration-300 ${
+              scrolled
+                ? "gap-1 sm:gap-2.5 min-[700px]:gap-4 lg:gap-6 text-zinc-300"
+                : "gap-1.5 sm:gap-3 min-[700px]:gap-6 lg:gap-9 text-zinc-300"
             }`}
           >
             {NAV_ITEMS.map((item, idx) => {
@@ -175,7 +177,7 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
                   onClick={(e) => handleNavClick(e, item.href)}
                   onMouseEnter={() => setHoveredIndex(idx)}
                   onMouseLeave={() => setHoveredIndex(null)}
-                  className="relative px-2 md:px-3 py-1.5 transition-colors duration-200 hover:text-white shrink-0"
+                  className="relative px-1.5 sm:px-2 md:px-3 py-1.5 transition-colors duration-200 hover:text-white shrink-0"
                 >
                   {(isHovered || (hoveredIndex === null && isActive)) && (
                     <motion.div
@@ -198,46 +200,47 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
             })}
           </motion.div>
 
-          {/* Action CTAs: Visible above 600px */}
+          {/* Action CTAs: Visible at >= 500px */}
           <motion.div
             layout
             transition={springTransition}
-            className={`hidden min-[600px]:flex items-center transition-all duration-300 ${
+            className={`hidden min-[500px]:flex items-center transition-all duration-300 ${
               scrolled ? "gap-2 md:gap-3" : "gap-2 md:gap-4"
             }`}
           >
+            {/* GitHub Icon: Hidden below 820px, Visible at >= 820px */}
             <a
               href="https://github.com/sree-ai-assistant/sree.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-400 hover:text-white p-1.5 md:p-2 rounded-full hover:bg-white/5 transition duration-200"
+              className="hidden min-[820px]:flex text-zinc-400 hover:text-white p-1.5 md:p-2 rounded-full hover:bg-white/5 transition duration-200"
               aria-label="GitHub Repository"
             >
               <FaGithub className="h-4 sm:h-5 w-4 sm:w-5" />
             </a>
 
+            {/* Launch Console Button: Icon-only (->) between 500px-820px, full text at >= 820px */}
             <a
               href="https://app.sreeai.qzz.io"
               target="_blank"
               rel="noopener noreferrer"
               className={`relative group flex items-center justify-center gap-1.5 md:gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${
                 scrolled
-                  ? "px-3 min-[820px]:px-4 py-1.5 text-xs"
-                  : "px-3.5 min-[820px]:px-5 py-2 text-xs md:text-sm"
+                  ? "p-2 min-[820px]:px-4 min-[820px]:py-1.5 text-xs"
+                  : "p-2.5 min-[820px]:px-5 min-[820px]:py-2 text-xs md:text-sm"
               }`}
               title="Launch Console"
             >
               <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              {/* Text hidden between 600px and 820px, visible >= 820px */}
               <span className="relative z-10 font-semibold tracking-wide hidden min-[820px]:inline">
                 Launch Console
               </span>
-              <ArrowRight className="relative z-10 h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
+              <ArrowRight className="relative z-10 h-4 w-4 min-[820px]:h-3.5 min-[820px]:w-3.5 group-hover:translate-x-0.5 transition-transform duration-200" />
             </a>
           </motion.div>
 
-          {/* Mobile Menu Toggle Button: Visible below 600px */}
-          <div className="flex min-[600px]:hidden items-center">
+          {/* Mobile Menu Toggle Button: Visible ONLY below 500px */}
+          <div className="flex min-[500px]:hidden items-center">
             <button
               type="button"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
@@ -250,7 +253,7 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
         </div>
       </motion.nav>
 
-      {/* Mobile Dropdown: Placed outside motion.nav so overflow-hidden doesn't clip it! */}
+      {/* Mobile Dropdown: Placed outside motion.nav, visible ONLY below 500px */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -258,7 +261,7 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="pointer-events-auto w-[calc(100%-1.5rem)] max-w-md mt-2 bg-[#07051a]/95 backdrop-blur-2xl border border-white/15 rounded-3xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(59,130,246,0.25)] flex flex-col gap-4 overflow-hidden min-[600px]:hidden z-50"
+            className="pointer-events-auto w-[calc(100%-1.5rem)] max-w-md mt-2 bg-[#07051a]/95 backdrop-blur-2xl border border-white/15 rounded-3xl p-5 shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(59,130,246,0.25)] flex flex-col gap-4 overflow-hidden min-[500px]:hidden z-50"
           >
             <div className="flex flex-col gap-1.5">
               {NAV_ITEMS.map((item) => (
