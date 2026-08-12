@@ -27,15 +27,33 @@ export default function WaitlistModal({
     }
   }, [selectedTool]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      await fetch("/api/early-access", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          request_type: "EarlyAccess",
+          email,
+          tool,
+          source: "Sree AI Landing Page",
+          timestamp: new Date().toISOString(),
+        }),
+      });
       setSubmitted(true);
-    }, 800);
+    } catch (err) {
+      console.error("Error submitting early access form to webhook:", err);
+      // Still mark as submitted for smooth UX
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleReset = () => {
@@ -116,8 +134,8 @@ export default function WaitlistModal({
                         type="button"
                         onClick={() => setTool(item.id)}
                         className={`py-2.5 px-3 rounded-lg text-xs font-semibold border transition-all duration-200 ${tool === item.id || tool.includes(item.id)
-                          ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
-                          : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
+                            ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                            : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
                           }`}
                       >
                         {item.label}

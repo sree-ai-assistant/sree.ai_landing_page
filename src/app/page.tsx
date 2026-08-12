@@ -310,9 +310,9 @@ export default function Home() {
 
                 {/* Architecture Highlights Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                  <div className="rounded-3xl border border-white/10 bg-[#07051a]/80 backdrop-blur-xl p-8 flex flex-col justify-between hover:border-blue-500/30 transition duration-300">
+                  <div className="rounded-xl border border-white/10 bg-[#07051a]/80 backdrop-blur-xl p-8 flex flex-col justify-between hover:border-blue-500/30 transition duration-300">
                     <div>
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-6">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-6">
                         <Zap className="h-6 w-6" />
                       </div>
                       <h3 className="text-xl font-bold text-white">Sub-50ms Voice Streaming</h3>
@@ -326,9 +326,9 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="rounded-3xl border border-white/10 bg-[#07051a]/80 backdrop-blur-xl p-8 flex flex-col justify-between hover:border-purple-500/30 transition duration-300">
+                  <div className="rounded-xl border border-white/10 bg-[#07051a]/80 backdrop-blur-xl p-8 flex flex-col justify-between hover:border-purple-500/30 transition duration-300">
                     <div>
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-6">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-purple-500/10 text-purple-400 border border-purple-500/20 mb-6">
                         <Lock className="h-6 w-6" />
                       </div>
                       <h3 className="text-xl font-bold text-white">Zero Data Retention</h3>
@@ -342,9 +342,9 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="rounded-3xl border border-white/10 bg-[#07051a]/80 backdrop-blur-xl p-8 flex flex-col justify-between hover:border-emerald-500/30 transition duration-300">
+                  <div className="rounded-xl border border-white/10 bg-[#07051a]/80 backdrop-blur-xl p-8 flex flex-col justify-between hover:border-emerald-500/30 transition duration-300">
                     <div>
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6">
                         <Database className="h-6 w-6" />
                       </div>
                       <h3 className="text-xl font-bold text-white">Self-Hosted Private VPC</h3>

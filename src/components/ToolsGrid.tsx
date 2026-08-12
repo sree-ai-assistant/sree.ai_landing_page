@@ -153,11 +153,11 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 whileHover={{ y: -6 }}
-                className="group relative rounded-3xl border border-white/10 bg-[#07051a]/80 backdrop-blur-xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:border-white/20 hover:bg-[#0c0926]"
+                className="group relative rounded-xl border border-white/10 bg-[#07051a]/80 backdrop-blur-xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:border-white/20 hover:bg-[#0c0926]"
               >
                 {/* Glow on hover */}
                 <div
-                  className={`absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${tool.glow}`}
+                  className={`absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none ${tool.glow}`}
                 />
 
                 <div>
@@ -172,11 +172,10 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
                     </div>
 
                     <span
-                      className={`text-xs font-semibold tracking-wide px-3 py-1 rounded-full border ${
-                        tool.isEarlyAccess
-                          ? "bg-purple-500/10 text-purple-300 border-purple-500/20"
-                          : "bg-white/5 text-zinc-300 border-white/10"
-                      }`}
+                      className={`text-xs font-semibold tracking-wide px-3 py-1 rounded-full border ${tool.isEarlyAccess
+                        ? "bg-purple-500/10 text-purple-300 border-purple-500/20"
+                        : "bg-white/5 text-zinc-300 border-white/10"
+                        }`}
                     >
                       {tool.badge}
                     </span>
@@ -234,10 +233,10 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-16 rounded-2xl border border-blue-500/20 bg-gradient-to-r from-blue-950/40 via-indigo-950/40 to-purple-950/40 p-6 md:p-8 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6"
+          className="mt-16 rounded-xl border border-blue-500/20 bg-gradient-to-r from-blue-950/40 via-indigo-950/40 to-purple-950/40 p-6 md:p-8 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 border border-blue-500/30 text-blue-400">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400">
               <ShieldCheck className="h-6 w-6" />
             </div>
             <div>
@@ -254,7 +253,7 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
             href="https://app.sreeai.qzz.io"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 px-6 py-3 rounded-xl bg-white text-zinc-950 font-semibold text-sm hover:bg-zinc-200 transition duration-150 shadow-lg cursor-pointer text-center"
+            className="shrink-0 px-6 py-3 rounded-lg bg-white text-zinc-950 font-semibold text-sm hover:bg-zinc-200 transition duration-150 shadow-lg cursor-pointer text-center"
           >
             Start Using Tools Free
           </a>

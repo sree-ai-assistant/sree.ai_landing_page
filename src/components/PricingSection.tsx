@@ -216,7 +216,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative flex flex-col justify-between rounded-3xl p-8 backdrop-blur-2xl transition-all duration-300 ${plan.badge === "BEST VALUE"
+                className={`relative flex flex-col justify-between rounded-xl p-8 backdrop-blur-2xl transition-all duration-300 ${plan.badge === "BEST VALUE"
                   ? "border-2 border-blue-500/50 bg-[#0b0826]/90 shadow-[0_0_50px_rgba(59,130,246,0.25)] lg:-translate-y-2"
                   : plan.badge === "UNLEASHED"
                     ? "border border-purple-500/40 bg-[#090621]/80 shadow-[0_0_40px_rgba(168,85,247,0.2)]"
@@ -285,7 +285,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                     href="https://app.sreeai.qzz.io/pricing"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`mt-6 w-full block text-center py-3.5 px-6 rounded-2xl font-semibold text-sm transition-all duration-200 cursor-pointer shadow-lg ${plan.buttonVariant === "primary"
+                    className={`mt-6 w-full block text-center py-3.5 px-6 rounded-lg font-semibold text-sm transition-all duration-200 cursor-pointer shadow-lg ${plan.buttonVariant === "primary"
                       ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-blue-500/30 hover:shadow-blue-500/50"
                       : plan.buttonVariant === "accent"
                         ? "bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 text-white shadow-purple-500/30 hover:shadow-purple-500/50"
@@ -296,7 +296,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                   </a>
 
                   {/* Specs Table */}
-                  <div className="mt-8 rounded-2xl bg-white/5 border border-white/10 p-4 space-y-2.5 text-xs">
+                  <div className="mt-8 rounded-lg bg-white/5 border border-white/10 p-4 space-y-2.5 text-xs">
                     {plan.specs.map((spec) => (
                       <div key={spec.label} className="flex items-center justify-between text-zinc-300">
                         <span className="text-zinc-400 font-medium">{spec.label}</span>
@@ -346,7 +346,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                 onAnimationComplete={() => window.dispatchEvent(new Event("resize"))}
                 className="overflow-hidden mt-8"
               >
-                <div className="rounded-3xl border border-white/15 bg-[#07051a]/90 backdrop-blur-2xl p-4 md:p-8 overflow-x-auto shadow-2xl">
+                <div className="rounded-xl border border-white/15 bg-[#07051a]/90 backdrop-blur-2xl p-4 md:p-8 overflow-x-auto shadow-2xl">
                   <table className="w-full text-left text-sm text-zinc-300 min-w-[650px]">
                     <thead>
                       <tr className="border-b border-white/10 text-xs uppercase tracking-wider text-zinc-400">
