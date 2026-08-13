@@ -2,37 +2,32 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, HelpCircle, Sparkles } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 
 const FAQ_ITEMS = [
   {
     id: 1,
-    question: "Is Sree AI fully open-source and self-hostable?",
+    question: "Is Sree AI self-hostable?",
     answer:
-      "Yes. Sree AI's core codebase is licensed under the Apache 2.0 open-source license. You can deploy our Next.js frontend, Deno Edge gateway, and Supabase vector database containers directly into your private AWS VPC, GCP project, or on-premise hardware.",
+      "Yes. Sree AI is designed to be fully self-hostable. You can deploy our application frontend, API gateway, and database containers directly into your private cloud (AWS VPC, GCP project) or on-premise hardware infrastructure.",
   },
   {
     id: 2,
-    question: "What AI tools are included in Sree AI?",
+    question: "What AI tools and models are included in Sree AI?",
     answer:
-      "Sree AI unifies Sree Chat (75+ open LLMs), Sree Voice (sub-50ms real-time audio synthesis), Sree Image (FLUX.1 & Stable Diffusion 3), Sree Video (Runway Gen-3 & Luma APIs), 2D to 3D Convertor, and AI Humanizer & Enhancer under one single account.",
+      "Sree AI unifies Sree Chat (75+ open LLMs), Sree Voice (sub-50ms real-time audio synthesis), Sree Image (FLUX.1 & Nano Banana), Sree Video (Google Veo 3.1 & Google Omni Flash), 2D to 3D Convertor, and AI Humanizer & Enhancer under one unified account.",
   },
   {
     id: 3,
     question: "How does Bring Your Own Keys (BYOK) work?",
-    answer: "BYOK allows you to enter your own OpenAI, Anthropic, or Replicate API keys in your settings dashboard. When enabled, your queries route directly through your keys with zero platform markups across Free ($0), Starter ($8), and Pro ($29) plans.",
+    answer:
+      "BYOK allows you to connect your own API keys from inference providers like NVIDIA, Google, Groq, and Deepgram (with Anthropic & OpenAI support coming soon). When enabled, your requests route directly through your keys with zero platform markups across all plans.",
   },
   {
     id: 4,
-    question: "What are the storage auto-delete retention policies?",
+    question: "What are the storage retention policies?",
     answer:
       "On the Free plan ($0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo), data is retained for 3 months. On Pro ($29/mo), your data has no expiration period.",
-  },
-  {
-    id: 5,
-    question: "How does Sree Voice achieve sub-50ms latency?",
-    answer:
-      "Sree Voice uses persistent bidirectional WebSocket connections directly to distributed Deno Edge nodes. Text-to-Speech (TTS) and Automatic Speech Recognition (ASR) pipelines run concurrently, streaming audio buffers instantly to eliminate robotic pauses.",
   },
 ];
 
@@ -74,7 +69,7 @@ export default function FaqSection() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-base md:text-lg text-zinc-400"
           >
-            Everything you need to know about Sree AI tools, pricing, open models, and self-hosting options.
+            Everything you need to know about Sree AI tools, pricing, models, and self-hosting options.
           </motion.p>
         </div>
 
