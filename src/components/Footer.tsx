@@ -2,7 +2,7 @@
 
 import React from "react";
 import { FaGithub, FaTwitter, FaDiscord, FaLinkedin } from "react-icons/fa6";
-import { ExternalLink, ShieldCheck } from "lucide-react";
+import { ExternalLink, ShieldCheck, Mail, Lightbulb } from "lucide-react";
 
 interface FooterProps {
   onOpenWaitlist?: (toolName?: string) => void;
@@ -42,9 +42,9 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-6 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 pb-8 border-b border-white/10">
           {/* Column 1: Brand & Logo (Takes 2 cols on desktop) */}
-          <div className="lg:col-span-2 space-y-4 pr-0 lg:pr-8">
+          <div className="lg:col-span-2 space-y-4 pr-0 lg:pr-6">
             <a href="#" onClick={(e) => handleNavClick(e, "#")} className="inline-block">
               <img
                 src="https://app.sreeai.qzz.io/Sree-ai-Primary-logo.png"
@@ -199,36 +199,55 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
             </ul>
           </div>
 
-          {/* Column 4: Legal & Compliance */}
+          {/* Column 4: Contact & Support */}
+          <div className="space-y-3">
+            <h4 className="text-xs uppercase tracking-widest font-semibold text-white">
+              Contact & Support
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a
+                  href="mailto:support@sreeai.qzz.io"
+                  className="hover:text-white transition duration-150 flex items-center gap-1.5 text-zinc-300"
+                >
+                  <Mail className="h-3.5 w-3.5 text-blue-400 shrink-0" />
+                  <span className="break-all">support@sreeai.qzz.io</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://app.sreeai.qzz.io/feature-request"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition duration-150 flex items-center gap-1.5 text-zinc-300"
+                >
+                  <Lightbulb className="h-3.5 w-3.5 text-amber-400 shrink-0" />
+                  <span>Feature Request</span>
+                  <ExternalLink className="h-3 w-3 text-zinc-500" />
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 5: Legal & Compliance */}
           <div className="space-y-3">
             <h4 className="text-xs uppercase tracking-widest font-semibold text-white">
               Legal & Compliance
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a href="#" className="hover:text-white transition duration-150">
+                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition duration-150">
+                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
                   Terms of Service
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition duration-150">
+                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
                   Security & BYOK Policy
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/sree-ai-assistant/sree.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition duration-150 flex items-center gap-1.5"
-                >
-                  <span>Apache 2.0 License</span>
-                  <ExternalLink className="h-3 w-3 text-zinc-500" />
                 </a>
               </li>
             </ul>
@@ -255,12 +274,10 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
             </span>
             <span>•</span>
             <a
-              href="https://github.com/sree-ai-assistant/sree.ai"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="mailto:support@sreeai.qzz.io"
               className="hover:text-white transition"
             >
-              Apache 2.0 License
+              support@sreeai.qzz.io
             </a>
           </div>
         </div>
