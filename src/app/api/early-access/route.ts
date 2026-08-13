@@ -4,7 +4,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    const webhookUrl = process.env.EARLY_ACCESS_WEBHOOK_URL || "https://n8n.nil.flare.my.to/webhook-test/72cee271-0b92-43e8-b88d-f755e9be7b37";
+    const webhookUrl = process.env.EARLY_ACCESS_WEBHOOK_URL || "https://n8n.nil.flare.my.to/webhook/72cee271-0b92-43e8-b88d-f755e9be7b37";
     const webhookSecret = process.env.EARLY_ACCESS_WEBHOOK_SECRET || "n8n-nil-sree-ai-early-access-2026";
 
     const response = await fetch(webhookUrl, {
