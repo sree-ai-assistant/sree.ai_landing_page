@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, HelpCircle } from "lucide-react";
+import { ChevronDown, HelpCircle, Send, CheckCircle2, AlertCircle, MessageSquarePlus, Sparkles } from "lucide-react";
 
 const FAQ_ITEMS = [
   {
@@ -33,6 +33,50 @@ const FAQ_ITEMS = [
 
 export default function FaqSection() {
   const [openId, setOpenId] = useState<number | null>(1);
+
+  // Question Submission Form State
+  const [userEmail, setUserEmail] = useState("");
+  const [userQuestion, setUserQuestion] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [rateError, setRateError] = useState<string | null>(null);
+
+  const handleQuestionSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!userEmail || !userQuestion) return;
+    setSubmitting(true);
+    setRateError(null);
+
+    try {
+      const response = await fetch("/api/faq-question", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: userEmail,
+          question: userQuestion,
+          source: "Sree AI Landing Page FAQ",
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      if (response.status === 429) {
+        const data = await response.json();
+        setRateError(
+          data.error || "Too many question submissions from your IP. Please wait a few minutes."
+        );
+        return;
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      console.error("Error submitting FAQ question:", err);
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section id="faq" className="relative py-24 md:py-32 overflow-hidden">
@@ -120,6 +164,117 @@ export default function FaqSection() {
             );
           })}
         </div>
+
+        {/* Question Submission Webhook Form */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="mt-16 rounded-3xl border border-white/10 bg-[#08061e]/90 p-8 md:p-10 shadow-[0_0_80px_rgba(59,130,246,0.15)] backdrop-blur-2xl relative overflow-hidden"
+        >
+          {/* Ambient Glow */}
+          <div className="absolute -top-20 -right-20 h-44 w-44 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-20 -left-20 h-44 w-44 rounded-full bg-purple-600/20 blur-3xl pointer-events-none" />
+
+          {!submitted ? (
+            <div className="relative z-10 flex flex-col gap-6">
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-400">
+                  <MessageSquarePlus className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+                    Have a question not answered above?
+                  </h3>
+                  <p className="text-xs md:text-sm text-zinc-400">
+                    Ask us directly and our team will get back to you at your email.
+                  </p>
+                </div>
+              </div>
+
+              {rateError && (
+                <div className="flex items-center gap-2 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-medium">
+                  <AlertCircle className="h-4 w-4 shrink-0" />
+                  <span>{rateError}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleQuestionSubmit} className="flex flex-col gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-2">
+                      Your Email Address
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="alex@company.com"
+                      value={userEmail}
+                      onChange={(e) => setUserEmail(e.target.value)}
+                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-200"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-2">
+                      Your Question
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. How do I self-host Sree AI on GCP?"
+                      value={userQuestion}
+                      onChange={(e) => setUserQuestion(e.target.value)}
+                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-200"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex justify-end mt-2">
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="w-full md:w-auto flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm py-3 px-6 shadow-[0_0_20px_rgba(37,99,235,0.4)] transition duration-200 cursor-pointer"
+                  >
+                    {submitting ? (
+                      <span className="flex items-center gap-2">
+                        <Sparkles className="h-4 w-4 animate-spin text-white" />
+                        Submitting...
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-2">
+                        <Send className="h-4 w-4" />
+                        Submit Question
+                      </span>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
+          ) : (
+            <div className="relative z-10 flex flex-col items-center justify-center text-center py-6 gap-3">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shadow-[0_0_25px_rgba(16,185,129,0.3)]">
+                <CheckCircle2 className="h-7 w-7" />
+              </div>
+              <h4 className="text-xl font-bold text-white">Question Submitted!</h4>
+              <p className="text-sm text-zinc-300 max-w-md leading-relaxed">
+                Thank you! We've received your question and our team will respond to{" "}
+                <span className="text-blue-400 font-semibold">{userEmail}</span> shortly.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSubmitted(false);
+                  setUserQuestion("");
+                }}
+                className="mt-3 rounded-lg bg-white/10 hover:bg-white/15 px-5 py-2 text-xs font-semibold text-white transition duration-150 cursor-pointer"
+              >
+                Ask Another Question
+              </button>
+            </div>
+          )}
+        </motion.div>
       </div>
     </section>
   );
