@@ -33,7 +33,10 @@ import WaitlistModal from "@/components/WaitlistModal";
 const partnerLogos = [
   { name: "DeepSeek V3", desc: "Reasoning & Logic AI" },
   { name: "Meta Llama 3.3", desc: "Open-Weights Foundation" },
-  { name: "Google Gemini 3.1", desc: "Multimodal Intelligence" },
+  { name: "Google Gemini 3.7", desc: "Multimodal Intelligence" },
+  { name: "Google Omni Flash", desc: "Real-Time Multimodal Speech & Vision" },
+  { name: "Nano Banana Pro", desc: "Pro Multimodal Image Gen" },
+  { name: "Nano Banana", desc: "Lightning Image AI" },
   { name: "FLUX.1 & FLUX.2", desc: "Photorealistic Image Gen" },
   { name: "Qwen 2.5 Coder", desc: "Specialized Code AI" },
   { name: "Mistral Large", desc: "Mixture of Experts" },
