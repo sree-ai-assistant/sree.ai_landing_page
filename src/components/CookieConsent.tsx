@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import posthog from "posthog-js";
 
 const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+const ONE_YEAR_MS = 365 * 24 * 60 * 60 * 1000; // 365 days in milliseconds
 
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
@@ -42,18 +43,23 @@ export default function CookieConsent() {
     const consent = localStorage.getItem("sreeai_cookie_consent");
     const consentAtStr = localStorage.getItem("sreeai_cookie_consent_at");
     const consentAt = consentAtStr ? parseInt(consentAtStr, 10) : 0;
+    const elapsed = Date.now() - consentAt;
 
     if (consent === "accepted") {
-      // User accepted -> Enable PostHog & do not show banner
-      initPostHog();
-      setShowBanner(false);
-    } else if (consent === "declined") {
-      const elapsed = Date.now() - consentAt;
-      if (elapsed >= ONE_WEEK_MS) {
-        // 1 week has passed since decline -> Prompt user again!
+      if (elapsed >= ONE_YEAR_MS) {
+        // 365 days have passed since accept -> Ask for consent again!
         setShowBanner(true);
       } else {
-        // Still within 1 week of decline -> Keep banner hidden, do NOT track
+        // Within 365 days -> Enable PostHog & do not show banner
+        initPostHog();
+        setShowBanner(false);
+      }
+    } else if (consent === "declined") {
+      if (elapsed >= ONE_WEEK_MS) {
+        // 7 days (1 week) have passed since decline -> Prompt user again!
+        setShowBanner(true);
+      } else {
+        // Still within 7 days of decline -> Keep banner hidden, do NOT track
         setShowBanner(false);
       }
     } else {
