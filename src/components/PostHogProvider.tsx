@@ -20,8 +20,9 @@ export default function PostHogProvider({ children }: PostHogProviderProps) {
 
       posthog.init(posthogKey, {
         api_host: posthogHost,
-        // Enable cross-subdomain cookie tracking across sreeai.qzz.io & app.sreeai.qzz.io in prod
+        // On production (sreeai.qzz.io <-> app.sreeai.qzz.io), cross_subdomain_cookie: true syncs cookies across subdomains (.qzz.io).
         cross_subdomain_cookie: !isLocal,
+        persistence: "cookie",
         person_profiles: "always",
         capture_pageview: true,
         loaded: (ph) => {
