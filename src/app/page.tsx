@@ -215,7 +215,7 @@ export default function Home() {
                     document.querySelector("#tools")?.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="relative group flex items-center justify-center gap-2.5 rounded-full px-8 py-4 font-semibold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-[0_0_30px_rgba(59,130,246,0.35)] hover:shadow-[0_0_45px_rgba(59,130,246,0.55)] transition-all duration-300 hover:scale-105 cursor-pointer text-sm"
+                className="relative group flex items-center justify-center gap-2.5 rounded-full px-8 py-4 font-semibold bg-blue-600 from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-[0_0_30px_rgba(59,130,246,0.35)] hover:shadow-[0_0_45px_rgba(59,130,246,0.55)] transition-all duration-300 hover:scale-105 cursor-pointer text-sm"
               >
                 <span>Explore AI Tools</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />

@@ -150,11 +150,10 @@ export default function WaitlistModal({
                         key={item.id}
                         type="button"
                         onClick={() => setTool(item.id)}
-                        className={`py-2.5 px-3 rounded-lg text-xs font-semibold border transition-all duration-200 ${
-                          tool === item.id || tool.includes(item.id)
+                        className={`py-2.5 px-3 rounded-lg text-xs font-semibold border transition-all duration-200 ${tool === item.id || tool.includes(item.id)
                             ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                             : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
-                        }`}
+                          }`}
                       >
                         {item.label}
                       </button>
@@ -183,7 +182,7 @@ export default function WaitlistModal({
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   disabled={loading}
-                  className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 py-3.5 px-6 font-semibold text-white shadow-[0_0_25px_rgba(59,130,246,0.4)] transition duration-200 cursor-pointer"
+                  className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-blue-600 from-blue-600 via-indigo-600 to-purple-600 py-3.5 px-6 font-semibold text-white shadow-[0_0_25px_rgba(59,130,246,0.4)] transition duration-200 cursor-pointer"
                 >
                   {loading ? (
                     <span className="flex items-center gap-2 text-sm">

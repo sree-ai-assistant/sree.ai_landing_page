@@ -288,7 +288,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                     className={`mt-6 w-full block text-center py-3.5 px-6 rounded-lg font-semibold text-sm transition-all duration-200 cursor-pointer shadow-lg ${plan.buttonVariant === "primary"
                       ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-blue-500/30 hover:shadow-blue-500/50"
                       : plan.buttonVariant === "accent"
-                        ? "bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 text-white shadow-purple-500/30 hover:shadow-purple-500/50"
+                        ? "bg-purple-600 from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-[0_0_25px_rgba(59,130,246,0.4)] hover:shadow-[0_0_35px_rgba(59,130,246,0.6)]"
                         : "bg-white/10 hover:bg-white/20 text-white border border-white/15"
                       }`}
                   >

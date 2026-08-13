@@ -165,8 +165,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
             layout
             transition={springTransition}
             className={`hidden min-[500px]:flex items-center text-xs md:text-sm font-medium transition-all duration-300 ${scrolled
-                ? "gap-1 sm:gap-2.5 min-[700px]:gap-4 lg:gap-6 text-zinc-300"
-                : "gap-1.5 sm:gap-3 min-[700px]:gap-6 lg:gap-9 text-zinc-300"
+              ? "gap-1 sm:gap-2.5 min-[700px]:gap-4 lg:gap-6 text-zinc-300"
+              : "gap-1.5 sm:gap-3 min-[700px]:gap-6 lg:gap-9 text-zinc-300"
               }`}
           >
             {NAV_ITEMS.map((item, idx) => {
@@ -187,8 +187,8 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
                       layoutId="navbar-pill-indicator"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       className={`absolute inset-0 rounded-full ${isActive && hoveredIndex === null
-                          ? "bg-blue-500/15 border border-blue-500/30 shadow-[0_0_12px_rgba(59,130,246,0.25)]"
-                          : "bg-white/10 border border-white/15"
+                        ? "bg-blue-500/15 border border-blue-500/30 shadow-[0_0_12px_rgba(59,130,246,0.25)]"
+                        : "bg-white/10 border border-white/15"
                         }`}
                     />
                   )}
@@ -225,9 +225,9 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
               href="https://app.sreeai.qzz.io"
               target="_blank"
               rel="noopener noreferrer"
-              className={`relative group flex items-center justify-center gap-1.5 md:gap-2 rounded-full font-medium bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${scrolled
-                  ? "p-2 min-[820px]:px-4 min-[820px]:py-1.5 text-xs"
-                  : "p-2.5 min-[820px]:px-5 min-[820px]:py-2 text-xs md:text-sm"
+              className={`relative group flex items-center justify-center gap-1.5 md:gap-2 rounded-full font-medium bg-blue-600 from-blue-600 via-indigo-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.35)] hover:shadow-[0_0_28px_rgba(59,130,246,0.55)] transition-all duration-300 cursor-pointer overflow-hidden ${scrolled
+                ? "p-2 min-[820px]:px-4 min-[820px]:py-1.5 text-xs"
+                : "p-2.5 min-[820px]:px-5 min-[820px]:py-2 text-xs md:text-sm"
                 }`}
               title="Launch Console"
             >
@@ -292,7 +292,7 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl py-3 px-5 font-semibold bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition duration-200"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl py-3 px-5 font-semibold bg-blue-600 from-blue-600 to-purple-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)] transition duration-200"
                 >
                   <span>Launch Console</span>
                   <ArrowRight className="h-4 w-4" />
