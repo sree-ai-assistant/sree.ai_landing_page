@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiX, FiCheckCircle, FiSend } from "react-icons/fi";
+import { FiX, FiCheckCircle, FiSend, FiAlertCircle } from "react-icons/fi";
 import { Sparkles } from "lucide-react";
 
 interface WaitlistModalProps {
@@ -20,6 +20,7 @@ export default function WaitlistModal({
   const [tool, setTool] = useState(selectedTool);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [rateLimitError, setRateLimitError] = useState<string | null>(null);
 
   useEffect(() => {
     if (selectedTool) {
@@ -31,9 +32,10 @@ export default function WaitlistModal({
     e.preventDefault();
     if (!email) return;
     setLoading(true);
+    setRateLimitError(null);
 
     try {
-      await fetch("/api/early-access", {
+      const response = await fetch("/api/early-access", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,6 +48,13 @@ export default function WaitlistModal({
           timestamp: new Date().toISOString(),
         }),
       });
+
+      if (response.status === 429) {
+        const data = await response.json();
+        setRateLimitError(data.error || "Too many requests from your IP. Please try again later.");
+        return;
+      }
+
       setSubmitted(true);
     } catch (err) {
       console.error("Error submitting early access form to webhook:", err);
@@ -59,6 +68,7 @@ export default function WaitlistModal({
   const handleReset = () => {
     setSubmitted(false);
     setEmail("");
+    setRateLimitError(null);
     onClose();
   };
 
@@ -118,7 +128,14 @@ export default function WaitlistModal({
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-2">
+              {rateLimitError && (
+                <div className="flex items-center gap-2 p-3 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-medium">
+                  <FiAlertCircle className="h-4 w-4 shrink-0" />
+                  <span>{rateLimitError}</span>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-1">
                 <div>
                   <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
                     Select Tool to Unlock Early
@@ -133,10 +150,11 @@ export default function WaitlistModal({
                         key={item.id}
                         type="button"
                         onClick={() => setTool(item.id)}
-                        className={`py-2.5 px-3 rounded-lg text-xs font-semibold border transition-all duration-200 ${tool === item.id || tool.includes(item.id)
+                        className={`py-2.5 px-3 rounded-lg text-xs font-semibold border transition-all duration-200 ${
+                          tool === item.id || tool.includes(item.id)
                             ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                             : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
-                          }`}
+                        }`}
                       >
                         {item.label}
                       </button>
