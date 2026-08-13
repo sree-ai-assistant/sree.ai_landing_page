@@ -43,7 +43,7 @@ const partnerLogos = [
   { name: "NVIDIA NIM", desc: "Accelerated GPU Inference" },
   { name: "Groq LPU", desc: "Ultra-Low Latency Engine" },
   { name: "Google Veo 3.1", desc: "Cinematic 4K Video Gen" },
-  { name: "Stable Diffusion XL", desc: "Open Diffusion Models" },
+  { name: "Meta Llama 3", desc: "Open Weights LLM" },
   { name: "Supabase DB", desc: "Vector Database Core" },
   { name: "Cloudflare", desc: "Global Edge Infrastructure" },
   { name: "GitHub", desc: "Open Source Codebase" },

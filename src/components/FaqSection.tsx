@@ -79,7 +79,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="faq" className="relative py-24 md:py-18 overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/10 blur-[130px] pointer-events-none rounded-full" />
 
@@ -138,9 +138,8 @@ export default function FaqSection() {
                     {item.question}
                   </span>
                   <div
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-zinc-300 transition-transform duration-300 ${
-                      isOpen ? "rotate-180 bg-blue-500/20 text-blue-400 border-blue-500/30" : ""
-                    }`}
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 border border-white/10 text-zinc-300 transition-transform duration-300 ${isOpen ? "rotate-180 bg-blue-500/20 text-blue-400 border-blue-500/30" : ""
+                      }`}
                   >
                     <ChevronDown className="h-4 w-4" />
                   </div>
@@ -165,112 +164,83 @@ export default function FaqSection() {
           })}
         </div>
 
-        {/* Question Submission Webhook Form */}
+        {/* Compact Horizontal FAQ Question Submission Bar */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="mt-16 rounded-3xl border border-white/10 bg-[#08061e]/90 p-8 md:p-10 shadow-[0_0_80px_rgba(59,130,246,0.15)] backdrop-blur-2xl relative overflow-hidden"
+          transition={{ delay: 0.2 }}
+          className="mt-8 rounded-2xl border border-white/10 bg-[#07051a]/90 p-4 md:p-5 shadow-[0_0_50px_rgba(59,130,246,0.12)] backdrop-blur-xl relative overflow-hidden"
         >
-          {/* Ambient Glow */}
-          <div className="absolute -top-20 -right-20 h-44 w-44 rounded-full bg-blue-600/20 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-20 -left-20 h-44 w-44 rounded-full bg-purple-600/20 blur-3xl pointer-events-none" />
-
           {!submitted ? (
-            <div className="relative z-10 flex flex-col gap-6">
-              <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-400">
-                  <MessageSquarePlus className="h-5 w-5" />
-                </div>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
-                    Have a question not answered above?
-                  </h3>
-                  <p className="text-xs md:text-sm text-zinc-400">
-                    Ask us directly and our team will get back to you at your email.
-                  </p>
-                </div>
+            <div className="relative z-10 flex flex-col gap-3">
+              <div className="flex items-center gap-2">
+                <MessageSquarePlus className="h-4 w-4 text-blue-400 shrink-0" />
+                <h3 className="text-xs md:text-sm font-semibold text-white">
+                  Have a question not answered above? Ask us directly:
+                </h3>
               </div>
 
               {rateError && (
-                <div className="flex items-center gap-2 p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-medium">
-                  <AlertCircle className="h-4 w-4 shrink-0" />
+                <div className="flex items-center gap-2 p-2 rounded-lg bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs">
+                  <AlertCircle className="h-3.5 w-3.5 shrink-0" />
                   <span>{rateError}</span>
                 </div>
               )}
 
-              <form onSubmit={handleQuestionSubmit} className="flex flex-col gap-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-2">
-                      Your Email Address
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="alex@company.com"
-                      value={userEmail}
-                      onChange={(e) => setUserEmail(e.target.value)}
-                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-200"
-                    />
-                  </div>
+              <form onSubmit={handleQuestionSubmit} className="flex flex-col sm:flex-row items-center gap-2.5">
+                <input
+                  type="email"
+                  required
+                  placeholder="Your email address"
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
+                  className="w-full sm:w-1/3 rounded-xl border border-white/15 bg-white/5 px-3.5 py-2.5 text-xs text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-200"
+                />
 
-                  <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-zinc-300 mb-2">
-                      Your Question
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. How do I self-host Sree AI on GCP?"
-                      value={userQuestion}
-                      onChange={(e) => setUserQuestion(e.target.value)}
-                      className="w-full rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-200"
-                    />
-                  </div>
-                </div>
+                <input
+                  type="text"
+                  required
+                  placeholder="Type your question..."
+                  value={userQuestion}
+                  onChange={(e) => setUserQuestion(e.target.value)}
+                  className="w-full sm:flex-1 rounded-xl border border-white/15 bg-white/5 px-3.5 py-2.5 text-xs text-white placeholder-zinc-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-200"
+                />
 
-                <div className="flex justify-end mt-2">
-                  <button
-                    type="submit"
-                    disabled={submitting}
-                    className="w-full md:w-auto flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm py-3 px-6 shadow-[0_0_20px_rgba(37,99,235,0.4)] transition duration-200 cursor-pointer"
-                  >
-                    {submitting ? (
-                      <span className="flex items-center gap-2">
-                        <Sparkles className="h-4 w-4 animate-spin text-white" />
-                        Submitting...
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        <Send className="h-4 w-4" />
-                        Submit Question
-                      </span>
-                    )}
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="w-full sm:w-auto shrink-0 flex items-center justify-center gap-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs py-2.5 px-5 shadow-[0_0_15px_rgba(37,99,235,0.35)] transition duration-200 cursor-pointer"
+                >
+                  {submitting ? (
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles className="h-3.5 w-3.5 animate-spin text-white" />
+                      Sending...
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-1.5">
+                      <Send className="h-3.5 w-3.5" />
+                      Submit Question
+                    </span>
+                  )}
+                </button>
               </form>
             </div>
           ) : (
-            <div className="relative z-10 flex flex-col items-center justify-center text-center py-6 gap-3">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 shadow-[0_0_25px_rgba(16,185,129,0.3)]">
-                <CheckCircle2 className="h-7 w-7" />
+            <div className="relative z-10 flex items-center justify-between gap-3 py-1">
+              <div className="flex items-center gap-2 text-xs text-emerald-400 font-medium">
+                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                <span>Question submitted! We'll reply to <strong className="text-white">{userEmail}</strong>.</span>
               </div>
-              <h4 className="text-xl font-bold text-white">Question Submitted!</h4>
-              <p className="text-sm text-zinc-300 max-w-md leading-relaxed">
-                Thank you! We've received your question and our team will respond to{" "}
-                <span className="text-blue-400 font-semibold">{userEmail}</span> shortly.
-              </p>
               <button
                 type="button"
                 onClick={() => {
                   setSubmitted(false);
                   setUserQuestion("");
                 }}
-                className="mt-3 rounded-lg bg-white/10 hover:bg-white/15 px-5 py-2 text-xs font-semibold text-white transition duration-150 cursor-pointer"
+                className="text-xs text-zinc-400 hover:text-white underline cursor-pointer"
               >
-                Ask Another Question
+                Ask another
               </button>
             </div>
           )}
