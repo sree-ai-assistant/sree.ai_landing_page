@@ -199,7 +199,31 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
             </ul>
           </div>
 
-          {/* Column 4: Contact & Support */}
+          {/* Column 4: Legal & Compliance */}
+          <div className="space-y-3">
+            <h4 className="text-xs uppercase tracking-widest font-semibold text-white">
+              Legal & Compliance
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
+                  Security & BYOK Policy
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 5: Contact & Support */}
           <div className="space-y-3">
             <h4 className="text-xs uppercase tracking-widest font-semibold text-white">
               Contact & Support
@@ -224,30 +248,6 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
                   <Lightbulb className="h-3.5 w-3.5 text-amber-400 shrink-0" />
                   <span>Feature Request</span>
                   <ExternalLink className="h-3 w-3 text-zinc-500" />
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 5: Legal & Compliance */}
-          <div className="space-y-3">
-            <h4 className="text-xs uppercase tracking-widest font-semibold text-white">
-              Legal & Compliance
-            </h4>
-            <ul className="space-y-2.5 text-sm">
-              <li>
-                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
-                  Terms of Service
-                </a>
-              </li>
-              <li>
-                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
-                  Security & BYOK Policy
                 </a>
               </li>
             </ul>
