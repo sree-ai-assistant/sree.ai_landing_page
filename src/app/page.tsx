@@ -31,14 +31,19 @@ import WaitlistModal from "@/components/WaitlistModal";
 
 // AI Models & Tech Stack Logos Marquee
 const partnerLogos = [
-  { name: "Meta Llama 3", desc: "Open Weights LLM" },
-  { name: "Mistral AI", desc: "Mixture of Experts" },
-  { name: "FLUX.1", desc: "State-of-the-art Image Gen" },
-  { name: "Runway Gen-3", desc: "Cinematic Video Gen" },
-  { name: "Luma AI", desc: "Dream Machine Video API" },
-  { name: "Stable Diffusion", desc: "Open Diffusion Models" },
-  { name: "Deno Deploy", desc: "Edge Runtime Infrastructure" },
+  { name: "DeepSeek V3", desc: "Reasoning & Logic AI" },
+  { name: "Meta Llama 3.3", desc: "Open-Weights Foundation" },
+  { name: "Google Gemini 3.1", desc: "Multimodal Intelligence" },
+  { name: "FLUX.1 & FLUX.2", desc: "Photorealistic Image Gen" },
+  { name: "Qwen 2.5 Coder", desc: "Specialized Code AI" },
+  { name: "Mistral Large", desc: "Mixture of Experts" },
+  { name: "NVIDIA NIM", desc: "Accelerated GPU Inference" },
+  { name: "Groq LPU", desc: "Ultra-Low Latency Engine" },
+  { name: "Google Veo 3.1", desc: "Cinematic 4K Video Gen" },
+  { name: "Stable Diffusion XL", desc: "Open Diffusion Models" },
   { name: "Supabase DB", desc: "Vector Database Core" },
+  { name: "Cloudflare", desc: "Global Edge Infrastructure" },
+  { name: "GitHub", desc: "Open Source Codebase" },
 ];
 
 // Testimonials data
