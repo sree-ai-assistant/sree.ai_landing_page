@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "All-in-one AI platform unifying 75+ LLMs, Sub-50ms Voice Agents, Studio-Grade Image & Video Generation, and 2D to 3D Convertor.",
     images: [
       {
-        url: "https://app.sreeai.qzz.io/Sree-ai-Primary-logo.png",
+        url: "https://app.sreeai.qzz.io/Sree-Ai-Fav-icon.png",
         width: 1200,
         height: 630,
         alt: "Sree AI Multimodal Platform",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "Sree AI — The Next-Gen Multimodal AI Platform",
     description:
       "All-in-one AI platform unifying 75+ LLMs, Sub-50ms Voice Agents, Studio-Grade Image & Video Generation, and 2D to 3D Convertor.",
-    images: ["https://app.sreeai.qzz.io/Sree-ai-Primary-logo.png"],
+    images: ["https://app.sreeai.qzz.io/Sree-Ai-Fav-icon.png"],
   },
 };
 
