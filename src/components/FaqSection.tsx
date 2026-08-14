@@ -192,6 +192,7 @@ export default function FaqSection() {
                 <input
                   type="email"
                   required
+                  suppressHydrationWarning
                   placeholder="Your email address"
                   value={userEmail}
                   onChange={(e) => setUserEmail(e.target.value)}
@@ -201,6 +202,7 @@ export default function FaqSection() {
                 <input
                   type="text"
                   required
+                  suppressHydrationWarning
                   placeholder="Type your question..."
                   value={userQuestion}
                   onChange={(e) => setUserQuestion(e.target.value)}

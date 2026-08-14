@@ -81,7 +81,7 @@ export async function POST(request: Request) {
     const webhookUrl =
       process.env.FAQ_QUESTION_WEBHOOK_URL ||
       process.env.EARLY_ACCESS_WEBHOOK_URL ||
-      "https://n8n.nil.flare.my.to/webhook-test/72cee271-0b92-43e8-b88d-f755e9be7b37";
+      "https://n8n.nil.flare.my.to/webhook/72cee271-0b92-43e8-b88d-f755e9be7b37";
 
     const webhookSecret =
       process.env.EARLY_ACCESS_WEBHOOK_SECRET || "n8n-nil-sree-ai-early-access-2026";

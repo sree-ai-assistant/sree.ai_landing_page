@@ -169,6 +169,7 @@ export default function WaitlistModal({
                     <input
                       type="email"
                       required
+                      suppressHydrationWarning
                       placeholder="alex@company.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
