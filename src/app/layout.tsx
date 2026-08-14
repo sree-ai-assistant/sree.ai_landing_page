@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     "Sree AI Convertor",
   ],
   icons: {
-    icon: "https://app.sreeai.qzz.io/Sree-Ai-Fav-icon.png",
-    shortcut: "https://app.sreeai.qzz.io/Sree-Ai-Fav-icon.png",
-    apple: "https://app.sreeai.qzz.io/Sree-Ai-Fav-icon.png",
+    icon: "/Sree-Ai-Fav-icon.png",
+    shortcut: "/Sree-Ai-Fav-icon.png",
+    apple: "/Sree-Ai-Fav-icon.png",
   },
   openGraph: {
     type: "website",
@@ -53,20 +53,29 @@ export const metadata: Metadata = {
       "All-in-one AI platform unifying 75+ LLMs, Sub-50ms Voice Agents, Studio-Grade Image & Video Generation, and 2D to 3D Convertor.",
     images: [
       {
-        url: "https://app.sreeai.qzz.io/Sree-Ai-Fav-icon.png",
-        width: 1200,
-        height: 630,
-        alt: "Sree AI Multimodal Platform",
+        url: "https://sreeai.qzz.io/og-image.jpg",
+        secureUrl: "https://sreeai.qzz.io/og-image.jpg",
+        width: 512,
+        height: 512,
+        alt: "Sree AI Multimodal Platform Logo",
+        type: "image/jpeg",
+      },
+      {
+        url: "https://sreeai.qzz.io/og-image.png",
+        secureUrl: "https://sreeai.qzz.io/og-image.png",
+        width: 512,
+        height: 512,
+        alt: "Sree AI Multimodal Platform Logo",
         type: "image/png",
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Sree AI — The Next-Gen Multimodal AI Platform",
     description:
       "All-in-one AI platform unifying 75+ LLMs, Sub-50ms Voice Agents, Studio-Grade Image & Video Generation, and 2D to 3D Convertor.",
-    images: ["https://app.sreeai.qzz.io/Sree-Ai-Fav-icon.png"],
+    images: ["https://sreeai.qzz.io/og-image.jpg"],
   },
 };
 
@@ -83,7 +92,8 @@ export default function RootLayout({
     >
       <head>
         <meta name="theme-color" content="#030014" />
-        <link rel="icon" type="image/png" href="https://app.sreeai.qzz.io/Sree-Ai-Fav-icon.png" />
+        <link rel="icon" type="image/png" href="/Sree-Ai-Fav-icon.png" />
+        <link rel="apple-touch-icon" href="/Sree-Ai-Fav-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
