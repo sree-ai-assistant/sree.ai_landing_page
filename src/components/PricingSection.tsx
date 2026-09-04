@@ -195,22 +195,20 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
               <button
                 type="button"
                 onClick={() => setCurrency("INR")}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
-                  currency === "INR"
-                    ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${currency === "INR"
+                    ? "bg-purple-600 hover:bg-purple-500 text-white shadow-[0_0_20px_rgba(168,85,247,0.45)]"
                     : "text-zinc-400 hover:text-white"
-                }`}
+                  }`}
               >
                 INR (₹)
               </button>
               <button
                 type="button"
                 onClick={() => setCurrency("USD")}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
-                  currency === "USD"
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${currency === "USD"
                     ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_0_15px_rgba(59,130,246,0.4)]"
                     : "text-zinc-400 hover:text-white"
-                }`}
+                  }`}
               >
                 USD ($)
               </button>
@@ -219,9 +217,8 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
             {/* Monthly / Annual Toggle */}
             <div className="flex items-center gap-3">
               <span
-                className={`text-sm font-medium transition-colors cursor-pointer ${
-                  !annualBilling ? "text-white font-semibold" : "text-zinc-400"
-                }`}
+                className={`text-sm font-medium transition-colors cursor-pointer ${!annualBilling ? "text-white font-semibold" : "text-zinc-400"
+                  }`}
                 onClick={() => setAnnualBilling(false)}
               >
                 Monthly
@@ -237,18 +234,14 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                 <motion.div
                   layout
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  className={`h-6 w-6 rounded-full bg-gradient-to-r ${
-                    annualBilling
-                      ? "from-purple-500 to-indigo-500 translate-x-8 shadow-[0_0_12px_rgba(168,85,247,0.5)]"
-                      : "from-blue-500 to-indigo-500 translate-x-0 shadow-[0_0_12px_rgba(59,130,246,0.5)]"
-                  }`}
+                  className={`h-6 w-6 rounded-full bg-purple-600 shadow-[0_0_14px_rgba(168,85,247,0.5)] ${annualBilling ? "translate-x-8" : "translate-x-0"
+                    }`}
                 />
               </button>
 
               <span
-                className={`flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${
-                  annualBilling ? "text-white font-semibold" : "text-zinc-400"
-                }`}
+                className={`flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${annualBilling ? "text-white font-semibold" : "text-zinc-400"
+                  }`}
                 onClick={() => setAnnualBilling(true)}
               >
                 <span>Annually</span>
@@ -274,23 +267,21 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative flex flex-col justify-between rounded-xl p-8 backdrop-blur-2xl transition-all duration-300 ${
-                  plan.badge === "BEST VALUE"
+                className={`relative flex flex-col justify-between rounded-xl p-8 backdrop-blur-2xl transition-all duration-300 ${plan.badge === "BEST VALUE"
                     ? "border-2 border-blue-500/50 bg-[#0b0826]/90 shadow-[0_0_50px_rgba(59,130,246,0.25)] lg:-translate-y-2"
                     : plan.badge === "UNLEASHED"
                       ? "border border-purple-500/40 bg-[#090621]/80 shadow-[0_0_40px_rgba(168,85,247,0.2)]"
                       : "border border-white/10 bg-[#07051a]/70 hover:border-white/20"
-                }`}
+                  }`}
               >
                 {/* Top Badge */}
                 {plan.badge && (
                   <div className="absolute -top-3.5 right-6">
                     <span
-                      className={`px-3 py-1 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-lg ${
-                        plan.badge === "BEST VALUE"
+                      className={`px-3 py-1 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-lg ${plan.badge === "BEST VALUE"
                           ? "bg-blue-600 text-white shadow-blue-500/40"
                           : "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-purple-500/40"
-                      }`}
+                        }`}
                     >
                       {plan.badge}
                     </span>
@@ -348,7 +339,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                     className={`mt-6 w-full block text-center py-3.5 px-6 rounded-lg font-semibold text-sm transition-all duration-200 cursor-pointer shadow-lg ${plan.buttonVariant === "primary"
                       ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-blue-500/30 hover:shadow-blue-500/50"
                       : plan.buttonVariant === "accent"
-                        ? "bg-purple-600 from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-[0_0_25px_rgba(59,130,246,0.4)] hover:shadow-[0_0_35px_rgba(59,130,246,0.6)]"
+                        ? "bg-purple-600 hover:bg-purple-500 text-white shadow-[0_0_25px_rgba(168,85,247,0.45)] hover:shadow-[0_0_35px_rgba(168,85,247,0.65)]"
                         : "bg-white/10 hover:bg-white/20 text-white border border-white/15"
                       }`}
                   >
