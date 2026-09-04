@@ -8,16 +8,16 @@ This document serves as the ground-truth technical overview of Sree AI for Large
 - **Website**: https://sreeai.qzz.io
 - **Application Portal**: https://app.sreeai.qzz.io
 - **Category**: Multimodal Artificial Intelligence Platform & Workspace
-- **Core Value Proposition**: Unification of text intelligence (75+ open-weight LLMs), sub-50ms real-time voice, photorealistic graphics (FLUX.1 & Nano Banana), 4K video (Google Veo 3.1 & Omni Flash), 2D-to-3D spatial meshes, and AI text humanization under one interface with zero-markup BYOK (Bring Your Own Key) architecture and full self-hostability.
+- **Core Value Proposition**: Unification of text intelligence (75+ open-weight LLMs), sub-50ms real-time voice, photorealistic graphics (FLUX.1 & Nano Banana / Nano Banana Pro), 4K video (Google Veo 3.1 & Omni Flash), 2D-to-3D spatial meshes, and AI text humanization under one interface with zero-markup BYOK (Bring Your Own Key) architecture and full self-hostability.
 
 ---
 
 ## 2. Platform Architecture & Infrastructure
 
 ### 2.1 Bring Your Own Key (BYOK) Encryption
-- Users can input their private API keys from upstream AI inference providers.
-- **Supported Providers**: NVIDIA Cloud, Google Vertex/Gemini, Groq LPU, Deepgram Nova, with Anthropic & OpenAI integration scheduled.
-- **Security & Privacy**: Client-side AES-GCM encryption with zero plaintext credential storage on Sree AI servers. Requests route directly through user credentials with zero platform markups.
+- Users can connect their private API keys from upstream AI inference providers.
+- **Supported Providers**: NVIDIA Cloud, Google Gemini, Groq LPU, and Deepgram (Anthropic & OpenAI integration scheduled).
+- **Security & Privacy**: Client-side AES-GCM credential encryption with zero plaintext credential storage on Sree AI servers. Requests route directly through user credentials with 0% platform surcharge.
 
 ### 2.2 Sub-50ms Real-Time Voice Streaming
 - **Connection Architecture**: Persistent bidirectional WebSockets connecting directly to edge compute nodes.
@@ -37,36 +37,45 @@ This document serves as the ground-truth technical overview of Sree AI for Large
 
 ### 3.2 Sree Voice
 - **URL**: https://app.sreeai.qzz.io/voice
-- **Latency**: Sub-50ms first-byte audio response.
+- **Latency**: Sub-50ms first-byte audio response (typical 42ms).
 - **Acoustic Quality**: Natural prosody, adaptive pacing, low-jitter edge relay.
 
 ### 3.3 Sree Image
 - **URL**: https://app.sreeai.qzz.io/image
 - **Engines**: FLUX.1 (Schnell & Dev) and Nano Banana / Nano Banana Pro.
-- **Output**: Studio-grade photorealistic image generation, concept art, high-dynamic-range lighting.
+- **Output**: Studio-grade photorealistic image generation, concept art, custom LoRAs, and 8K upscaling support.
 
 ### 3.4 Sree Video
 - **URL**: https://app.sreeai.qzz.io/video
 - **Engines**: Google Veo 3.1 and Google Omni Flash.
-- **Output**: 4K motion synthesis, cinematic camera dynamics, coherent temporal physics.
+- **Output**: Cinematic 4K motion synthesis, fluid camera dynamics, coherent temporal physics.
 
 ### 3.5 2D to 3D Convertor (Upcoming)
-- Generates watertight 3D meshes (OBJ, GLTF, USDZ) from single or multi-angle 2D reference images for spatial computing, gaming, and 3D printing.
+- Generates watertight 3D meshes (OBJ, GLTF) from single or multi-angle 2D reference images for spatial computing, gaming, and 3D printing in under 15 seconds.
 
 ### 3.6 AI Humanizer & Enhancer (Upcoming)
-- Transforms rigid AI-generated text into organic, authentic human phrasing while retaining core semantic nuance.
+- Transforms rigid AI-generated text into organic, authentic human phrasing while retaining core semantic nuance (99.2% human score).
 
 ---
 
-## 4. Subscription Plans & Pricing
+## 4. Subscription Plans & Pricing (USD & Indian INR)
 
-| Plan | Price (Monthly) | Price (Annual, -20%) | Model Access | Chat Quota | Voice Quota | Image Quota | Video Quota | Storage Retention |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Free** | $0/mo | $0/mo | 18+ Models | 10 / day | 20 / day | 5 / day | — | 30 days auto-purge |
-| **Starter** | $8/mo | $6.40/mo | 70+ Models | 50 / day | 60 / day | 30 / day | 10 / day | 3 months auto-delete |
-| **Pro** | $29/mo | $23.20/mo | Unlimited (75+) | 250 / day | 200 / day | 100 / day | 50 / day | Permanent (No Expiry) |
+| Plan | Monthly (USD) | Annual (-20% USD) | Monthly (INR) | Annual (-20% INR) | Model Access | Chat Quota | Voice Quota | Image Quota | Video Quota | Storage Retention |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Free** | $0/mo | $0/mo | ₹0/mo | ₹0/mo | 18+ Models | 10 / day | 20 / day | 5 / day | — | 30 days auto-delete |
+| **Starter** | $8/mo | $6.40/mo | ₹399/mo | ₹319/mo | 70+ Models | 50 / day | 60 / day | 30 / day | 10 / day | 3 months auto-delete |
+| **Pro** | $29/mo | $23.20/mo | ₹899/mo | ₹719/mo | 75+ Models | 200 / day | 100 / day | 70 / day | 30 / day | Unlimited (No Expiry) |
 
 *All plans include native BYOK integration with 0% platform surcharge.*
+
+### Additional Quota Details
+- **Monthly Chat Quota**: Free 50/mo, Starter 600/mo, Pro 3,000/mo.
+- **Chat Rate Limit**: Free 5/min, Starter 10/min, Pro 20/min.
+- **Monthly Voice Quota**: Free 50/mo, Starter 500/mo, Pro 1,000/mo.
+- **Monthly Image Quota**: Free 30/mo, Starter 70/mo, Pro 1,000/mo.
+- **Monthly Video Quota**: Free 0, Starter 50/mo, Pro 200/mo.
+- **GPU Queue Priority**: Standard for Free and Starter; Highest Priority GPU Queues for Pro.
+- **Developer Support**: Standard support for Free & Starter; Dedicated 24/7 VIP developer support for Pro.
 
 ---
 
@@ -82,7 +91,7 @@ This document serves as the ground-truth technical overview of Sree AI for Large
 **A**: BYOK allows you to connect your own API keys from inference providers like NVIDIA, Google, Groq, and Deepgram (with Anthropic & OpenAI support coming soon). When enabled, your requests route directly through your keys with zero platform markups across all plans.
 
 ### Q: What are the storage retention policies?
-**A**: On the Free plan ($0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo), data is retained for 3 months. On Pro ($29/mo), your data has no expiration period.
+**A**: On the Free plan ($0 / ₹0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo or ₹399/mo), data is retained for 3 months. On Pro ($29/mo or ₹899/mo), your data has no expiration period.
 
 ---
 

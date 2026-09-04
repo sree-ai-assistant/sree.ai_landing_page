@@ -128,21 +128,39 @@ const jsonLdData = [
     "offers": [
       {
         "@type": "Offer",
-        "name": "Free Plan",
+        "name": "Free Plan (USD)",
         "price": "0",
         "priceCurrency": "USD"
       },
       {
         "@type": "Offer",
-        "name": "Starter Plan",
+        "name": "Free Plan (INR)",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      {
+        "@type": "Offer",
+        "name": "Starter Plan (USD)",
         "price": "8",
         "priceCurrency": "USD"
       },
       {
         "@type": "Offer",
-        "name": "Pro Plan",
+        "name": "Starter Plan (INR)",
+        "price": "399",
+        "priceCurrency": "INR"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro Plan (USD)",
         "price": "29",
         "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro Plan (INR)",
+        "price": "899",
+        "priceCurrency": "INR"
       }
     ]
   },
@@ -179,7 +197,7 @@ const jsonLdData = [
         "name": "What are the storage retention policies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "On the Free plan ($0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo), data is retained for 3 months. On Pro ($29/mo), your data has no expiration period."
+          "text": "On the Free plan ($0 / ₹0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo or ₹399/mo), data is retained for 3 months. On Pro ($29/mo or ₹899/mo), your data has no expiration period."
         }
       }
     ]

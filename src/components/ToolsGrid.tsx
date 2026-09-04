@@ -49,11 +49,11 @@ const TOOLS = [
   {
     id: "image",
     title: "Sree Image",
-    category: "FLUX.1 & Diffusion Engine",
+    category: "FLUX.1 & Nano Banana Engine",
     description:
-      "Photorealistic text-to-image synthesis using FLUX.1 (Schnell & Dev) and Stable Diffusion 3. Supports custom LoRAs and rapid speed nodes.",
+      "Photorealistic text-to-image synthesis using FLUX.1 and Nano Banana / Nano Banana Pro. Supports lightning speed nodes, custom LoRAs, and 8K upscaling.",
     icon: ImageIcon,
-    badge: "FLUX.1 Schnell",
+    badge: "FLUX.1 & Nano Banana",
     gradient: "from-emerald-500 via-teal-600 to-cyan-600",
     glow: "shadow-[0_0_30px_rgba(16,185,129,0.3)]",
     metrics: "Render Speed: 3.2s",
@@ -64,12 +64,12 @@ const TOOLS = [
     title: "Sree Video",
     category: "Cinematic Video Studio",
     description:
-      "Transform prompts or static images into fluid, cinematic high-framerate videos with integrated Luma Dream Machine & Runway Gen-3 APIs.",
+      "Transform prompts or static images into fluid, cinematic 4K videos powered by Google Veo 3.1 and Google Omni Flash engines.",
     icon: Video,
-    badge: "4K Motion",
+    badge: "Veo 3.1 & Omni Flash",
     gradient: "from-amber-500 via-orange-600 to-red-600",
     glow: "shadow-[0_0_30px_rgba(245,158,11,0.3)]",
-    metrics: "Camera Controls: Included",
+    metrics: "4K Motion Synthesis",
     isEarlyAccess: false,
   },
   {

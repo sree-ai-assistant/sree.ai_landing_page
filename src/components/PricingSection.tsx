@@ -12,14 +12,22 @@ interface PricingSectionProps {
 export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) {
   const [annualBilling, setAnnualBilling] = useState(false);
   const [showComparison, setShowComparison] = useState(false);
+  const [currency, setCurrency] = useState<"INR" | "USD">("INR");
 
-  // Prices: Free $0, Starter $8 ($6.40 annual), Pro $29 ($23.20 annual)
+  const isINR = currency === "INR";
+  const priceSymbol = isINR ? "₹" : "$";
+
+  // Prices:
+  // USD: Free $0, Starter $8 ($6.40 annual), Pro $29 ($23.20 annual)
+  // INR: Free ₹0, Starter ₹399 (₹319 annual), Pro ₹899 (₹719 annual)
   const plans = [
     {
       id: "free",
       name: "FREE",
-      priceMonthly: 0,
-      priceAnnual: 0,
+      priceMonthlyUSD: 0,
+      priceAnnualUSD: 0,
+      priceMonthlyINR: 0,
+      priceAnnualINR: 0,
       badge: null,
       description: "Perfect for exploring Sree AI with no initial commitment.",
       buttonText: "Sign Up",
@@ -40,8 +48,10 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
     {
       id: "starter",
       name: "STARTER",
-      priceMonthly: 8,
-      priceAnnual: 6.4,
+      priceMonthlyUSD: 8,
+      priceAnnualUSD: 6.4,
+      priceMonthlyINR: 399,
+      priceAnnualINR: 319,
       discountText: "-20% OFF",
       badge: "BEST VALUE",
       description: "Ideal for creators and professionals needing reliable daily limits.",
@@ -65,8 +75,10 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
     {
       id: "pro",
       name: "PRO",
-      priceMonthly: 29,
-      priceAnnual: 23.2,
+      priceMonthlyUSD: 29,
+      priceAnnualUSD: 23.2,
+      priceMonthlyINR: 899,
+      priceAnnualINR: 719,
       discountText: "-20% OFF",
       badge: "UNLEASHED",
       description: "Designed for power users demanding highest limits & priority GPU speeds.",
@@ -92,8 +104,18 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
 
   // Feature Comparison Data
   const comparisonRows = [
-    { name: "Monthly Pricing", free: "$0", starter: "$8/mo", pro: "$29/mo" },
-    { name: "Annual Discount Rate", free: "—", starter: "$6.40/mo (Save 20%)", pro: "$23.20/mo (Save 20%)" },
+    {
+      name: "Monthly Pricing",
+      free: isINR ? "₹0" : "$0",
+      starter: isINR ? "₹399/mo" : "$8/mo",
+      pro: isINR ? "₹899/mo" : "$29/mo",
+    },
+    {
+      name: "Annual Discount Rate",
+      free: "—",
+      starter: isINR ? "₹319/mo (Save 20%)" : "$6.40/mo (Save 20%)",
+      pro: isINR ? "₹719/mo (Save 20%)" : "$23.20/mo (Save 20%)",
+    },
     { name: "Model Access", free: "18+ models", starter: "70+ models", pro: "75+ models" },
     { name: "Daily Chat Requests", free: "10 / day", starter: "50 / day", pro: "200 / day" },
     { name: "Monthly Chat Quota", free: "50 / month", starter: "600 / month", pro: "3,000 / month" },
@@ -160,54 +182,90 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
             Choose the perfect tier to unlock intelligent AI chats, high-fidelity voice synthesis, and professional graphics generation.
           </motion.p>
 
-          {/* Animated Billing Toggle */}
+          {/* Controls: Currency Toggle & Billing Toggle */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="mt-8 flex items-center justify-center gap-4"
+            className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-5"
           >
-            <span
-              className={`text-sm font-medium transition-colors cursor-pointer ${!annualBilling ? "text-white font-semibold" : "text-zinc-400"
+            {/* Currency Selector */}
+            <div className="inline-flex items-center p-1 rounded-xl bg-white/5 border border-white/10 shadow-inner">
+              <button
+                type="button"
+                onClick={() => setCurrency("INR")}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                  currency === "INR"
+                    ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+                    : "text-zinc-400 hover:text-white"
                 }`}
-              onClick={() => setAnnualBilling(false)}
-            >
-              Monthly
-            </span>
-
-            {/* Toggle Switch */}
-            <button
-              onClick={() => setAnnualBilling(!annualBilling)}
-              className="relative flex h-8 w-16 items-center rounded-full bg-white/10 p-1 border border-white/15 transition-colors duration-300 focus:outline-none cursor-pointer"
-            >
-              <motion.div
-                layout
-                transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                className={`h-6 w-6 rounded-full bg-gradient-to-r ${annualBilling
-                  ? "from-purple-500 to-indigo-500 translate-x-8 shadow-[0_0_12px_rgba(168,85,247,0.5)]"
-                  : "from-blue-500 to-indigo-500 translate-x-0 shadow-[0_0_12px_rgba(59,130,246,0.5)]"
-                  }`}
-              />
-            </button>
-
-            <span
-              className={`flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${annualBilling ? "text-white font-semibold" : "text-zinc-400"
+              >
+                INR (₹)
+              </button>
+              <button
+                type="button"
+                onClick={() => setCurrency("USD")}
+                className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                  currency === "USD"
+                    ? "bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-[0_0_15px_rgba(59,130,246,0.4)]"
+                    : "text-zinc-400 hover:text-white"
                 }`}
-              onClick={() => setAnnualBilling(true)}
-            >
-              <span>Annually</span>
-              <span className="rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 px-2.5 py-0.5 text-xs font-semibold">
-                Save 20%
+              >
+                USD ($)
+              </button>
+            </div>
+
+            {/* Monthly / Annual Toggle */}
+            <div className="flex items-center gap-3">
+              <span
+                className={`text-sm font-medium transition-colors cursor-pointer ${
+                  !annualBilling ? "text-white font-semibold" : "text-zinc-400"
+                }`}
+                onClick={() => setAnnualBilling(false)}
+              >
+                Monthly
               </span>
-            </span>
+
+              {/* Toggle Switch */}
+              <button
+                type="button"
+                onClick={() => setAnnualBilling(!annualBilling)}
+                aria-label="Toggle annual billing"
+                className="relative flex h-8 w-16 items-center rounded-full bg-white/10 p-1 border border-white/15 transition-colors duration-300 focus:outline-none cursor-pointer"
+              >
+                <motion.div
+                  layout
+                  transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                  className={`h-6 w-6 rounded-full bg-gradient-to-r ${
+                    annualBilling
+                      ? "from-purple-500 to-indigo-500 translate-x-8 shadow-[0_0_12px_rgba(168,85,247,0.5)]"
+                      : "from-blue-500 to-indigo-500 translate-x-0 shadow-[0_0_12px_rgba(59,130,246,0.5)]"
+                  }`}
+                />
+              </button>
+
+              <span
+                className={`flex items-center gap-2 text-sm font-medium transition-colors cursor-pointer ${
+                  annualBilling ? "text-white font-semibold" : "text-zinc-400"
+                }`}
+                onClick={() => setAnnualBilling(true)}
+              >
+                <span>Annually</span>
+                <span className="rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 px-2.5 py-0.5 text-xs font-semibold">
+                  Save 20%
+                </span>
+              </span>
+            </div>
           </motion.div>
         </div>
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
           {plans.map((plan, idx) => {
-            const price = annualBilling ? plan.priceAnnual : plan.priceMonthly;
+            const monthlyPrice = isINR ? plan.priceMonthlyINR : plan.priceMonthlyUSD;
+            const annualPrice = isINR ? plan.priceAnnualINR : plan.priceAnnualUSD;
+            const price = annualBilling ? annualPrice : monthlyPrice;
 
             return (
               <motion.div
@@ -216,21 +274,23 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className={`relative flex flex-col justify-between rounded-xl p-8 backdrop-blur-2xl transition-all duration-300 ${plan.badge === "BEST VALUE"
-                  ? "border-2 border-blue-500/50 bg-[#0b0826]/90 shadow-[0_0_50px_rgba(59,130,246,0.25)] lg:-translate-y-2"
-                  : plan.badge === "UNLEASHED"
-                    ? "border border-purple-500/40 bg-[#090621]/80 shadow-[0_0_40px_rgba(168,85,247,0.2)]"
-                    : "border border-white/10 bg-[#07051a]/70 hover:border-white/20"
-                  }`}
+                className={`relative flex flex-col justify-between rounded-xl p-8 backdrop-blur-2xl transition-all duration-300 ${
+                  plan.badge === "BEST VALUE"
+                    ? "border-2 border-blue-500/50 bg-[#0b0826]/90 shadow-[0_0_50px_rgba(59,130,246,0.25)] lg:-translate-y-2"
+                    : plan.badge === "UNLEASHED"
+                      ? "border border-purple-500/40 bg-[#090621]/80 shadow-[0_0_40px_rgba(168,85,247,0.2)]"
+                      : "border border-white/10 bg-[#07051a]/70 hover:border-white/20"
+                }`}
               >
                 {/* Top Badge */}
                 {plan.badge && (
                   <div className="absolute -top-3.5 right-6">
                     <span
-                      className={`px-3 py-1 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-lg ${plan.badge === "BEST VALUE"
-                        ? "bg-blue-600 text-white shadow-blue-500/40"
-                        : "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-purple-500/40"
-                        }`}
+                      className={`px-3 py-1 text-xs font-extrabold uppercase tracking-wider rounded-full shadow-lg ${
+                        plan.badge === "BEST VALUE"
+                          ? "bg-blue-600 text-white shadow-blue-500/40"
+                          : "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-purple-500/40"
+                      }`}
                     >
                       {plan.badge}
                     </span>
@@ -252,10 +312,10 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
 
                   {/* Animated Price Counter */}
                   <div className="mt-6 flex items-baseline gap-1">
-                    <span className="text-3xl font-bold text-zinc-300">$</span>
+                    <span className="text-3xl font-bold text-zinc-300">{priceSymbol}</span>
                     <AnimatePresence mode="wait">
                       <motion.span
-                        key={price}
+                        key={`${currency}-${price}`}
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 10 }}
@@ -266,13 +326,13 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
                       </motion.span>
                     </AnimatePresence>
                     <span className="text-sm font-medium text-zinc-400 ml-1">
-                      {plan.priceMonthly === 0 ? "forever" : "/mo"}
+                      {monthlyPrice === 0 ? "forever" : "/mo"}
                     </span>
                   </div>
 
-                  {annualBilling && plan.priceMonthly > 0 && (
+                  {annualBilling && monthlyPrice > 0 && (
                     <p className="text-xs text-zinc-400 mt-1">
-                      Billed annually (normally ${plan.priceMonthly}/mo)
+                      Billed annually (normally {priceSymbol}{monthlyPrice}/mo)
                     </p>
                   )}
 

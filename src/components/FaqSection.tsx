@@ -27,7 +27,7 @@ const FAQ_ITEMS = [
     id: 4,
     question: "What are the storage retention policies?",
     answer:
-      "On the Free plan ($0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo), data is retained for 3 months. On Pro ($29/mo), your data has no expiration period.",
+      "On the Free plan ($0 / ₹0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo or ₹399/mo), data is retained for 3 months. On Pro ($29/mo or ₹899/mo), your data has no expiration period.",
   },
 ];
 
