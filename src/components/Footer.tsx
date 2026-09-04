@@ -206,18 +206,69 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
-                  Privacy Policy
+                <a
+                  href="https://app.sreeai.qzz.io/terms"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition duration-150 flex items-center gap-1.5"
+                >
+                  <span>Terms of Service</span>
+                  <ExternalLink className="h-3 w-3 text-zinc-500" />
                 </a>
               </li>
               <li>
-                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
-                  Terms of Service
+                <a
+                  href="https://app.sreeai.qzz.io/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition duration-150 flex items-center gap-1.5"
+                >
+                  <span>Privacy Policy</span>
+                  <ExternalLink className="h-3 w-3 text-zinc-500" />
                 </a>
               </li>
               <li>
-                <a href="#faq" onClick={(e) => handleNavClick(e, "#faq")} className="hover:text-white transition duration-150">
-                  Security & BYOK Policy
+                <a
+                  href="https://app.sreeai.qzz.io/security"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition duration-150 flex items-center gap-1.5"
+                >
+                  <span>Security & BYOK</span>
+                  <ExternalLink className="h-3 w-3 text-zinc-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://app.sreeai.qzz.io/refund-policy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition duration-150 flex items-center gap-1.5"
+                >
+                  <span>Refund & Cancellation</span>
+                  <ExternalLink className="h-3 w-3 text-zinc-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://app.sreeai.qzz.io/acceptable-use"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition duration-150 flex items-center gap-1.5"
+                >
+                  <span>Acceptable Use Policy</span>
+                  <ExternalLink className="h-3 w-3 text-zinc-500" />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://app.sreeai.qzz.io/cookies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition duration-150 flex items-center gap-1.5"
+                >
+                  <span>Cookie Policy</span>
+                  <ExternalLink className="h-3 w-3 text-zinc-500" />
                 </a>
               </li>
             </ul>
@@ -267,11 +318,34 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
             </p>
           </div>
 
-          <div className="flex items-center gap-4 text-zinc-400">
-            <span className="flex items-center gap-1.5">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-zinc-400">
+            <a
+              href="https://app.sreeai.qzz.io/security"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-white transition"
+            >
               <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
               <span>BYOK Encrypted</span>
-            </span>
+            </a>
+            <span>•</span>
+            <a
+              href="https://app.sreeai.qzz.io/terms"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition"
+            >
+              Terms
+            </a>
+            <span>•</span>
+            <a
+              href="https://app.sreeai.qzz.io/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition"
+            >
+              Privacy
+            </a>
             <span>•</span>
             <a
               href="mailto:support@sreeai.qzz.io"

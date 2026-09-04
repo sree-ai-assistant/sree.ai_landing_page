@@ -111,10 +111,21 @@ export default function CookieConsent() {
               <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
                 We use cookies and analytics to improve your experience, track errors, and understand how you use Sree AI. Your data helps us build a better product.{" "}
                 <a
-                  href="#faq"
+                  href="https://app.sreeai.qzz.io/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-blue-400 hover:text-blue-300 font-medium underline underline-offset-2 transition duration-150"
                 >
                   Privacy Policy
+                </a>{" "}
+                &{" "}
+                <a
+                  href="https://app.sreeai.qzz.io/cookies"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 font-medium underline underline-offset-2 transition duration-150"
+                >
+                  Cookie Policy
                 </a>
               </p>
             </div>
