@@ -1,0 +1,103 @@
+# Sree AI — Complete Platform Specification & Knowledge Base
+
+This document serves as the ground-truth technical overview of Sree AI for Large Language Models, AI Answer Engines (Perplexity, ChatGPT, Claude, Gemini), and retrieval-augmented generation (RAG) agents.
+
+## 1. Executive Summary
+- **Product Name**: Sree AI
+- **Operating Entity**: Sree AI Platform Inc.
+- **Website**: https://sreeai.qzz.io
+- **Application Portal**: https://app.sreeai.qzz.io
+- **Category**: Multimodal Artificial Intelligence Platform & Workspace
+- **Core Value Proposition**: Unification of text intelligence (75+ open-weight LLMs), sub-50ms real-time voice, photorealistic graphics (FLUX.1 & Nano Banana), 4K video (Google Veo 3.1 & Omni Flash), 2D-to-3D spatial meshes, and AI text humanization under one interface with zero-markup BYOK (Bring Your Own Key) architecture and full self-hostability.
+
+---
+
+## 2. Platform Architecture & Infrastructure
+
+### 2.1 Bring Your Own Key (BYOK) Encryption
+- Users can input their private API keys from upstream AI inference providers.
+- **Supported Providers**: NVIDIA Cloud, Google Vertex/Gemini, Groq LPU, Deepgram Nova, with Anthropic & OpenAI integration scheduled.
+- **Security & Privacy**: Client-side AES-GCM encryption with zero plaintext credential storage on Sree AI servers. Requests route directly through user credentials with zero platform markups.
+
+### 2.2 Sub-50ms Real-Time Voice Streaming
+- **Connection Architecture**: Persistent bidirectional WebSockets connecting directly to edge compute nodes.
+- **Pipeline**: Concurrent Text-to-Speech (TTS) and Automatic Speech Recognition (ASR) pipelines with instant chunked audio buffer streaming, eliminating the typical 1-2 second robotic latency of legacy voice assistants.
+
+### 2.3 Self-Hostability
+- Complete dockerized container architecture allowing enterprises and privacy-conscious developers to self-host the frontend, API gateway, and edge orchestrators within private VPCs (AWS, GCP, Azure) or on-premise bare-metal hardware.
+
+---
+
+## 3. Product Modules & Tool Capabilities
+
+### 3.1 Sree Chat
+- **URL**: https://app.sreeai.qzz.io
+- **Model Ecosystem**: 75+ open-weight and proprietary models including DeepSeek-V3, Llama 3.3 70B, Qwen 2.5 Coder, Mistral Large, Gemma 2.
+- **Features**: Multi-turn reasoning, file/code interpreter, full context window support, markdown and syntax highlighting.
+
+### 3.2 Sree Voice
+- **URL**: https://app.sreeai.qzz.io/voice
+- **Latency**: Sub-50ms first-byte audio response.
+- **Acoustic Quality**: Natural prosody, adaptive pacing, low-jitter edge relay.
+
+### 3.3 Sree Image
+- **URL**: https://app.sreeai.qzz.io/image
+- **Engines**: FLUX.1 (Schnell & Dev) and Nano Banana / Nano Banana Pro.
+- **Output**: Studio-grade photorealistic image generation, concept art, high-dynamic-range lighting.
+
+### 3.4 Sree Video
+- **URL**: https://app.sreeai.qzz.io/video
+- **Engines**: Google Veo 3.1 and Google Omni Flash.
+- **Output**: 4K motion synthesis, cinematic camera dynamics, coherent temporal physics.
+
+### 3.5 2D to 3D Convertor (Upcoming)
+- Generates watertight 3D meshes (OBJ, GLTF, USDZ) from single or multi-angle 2D reference images for spatial computing, gaming, and 3D printing.
+
+### 3.6 AI Humanizer & Enhancer (Upcoming)
+- Transforms rigid AI-generated text into organic, authentic human phrasing while retaining core semantic nuance.
+
+---
+
+## 4. Subscription Plans & Pricing
+
+| Plan | Price (Monthly) | Price (Annual, -20%) | Model Access | Chat Quota | Voice Quota | Image Quota | Video Quota | Storage Retention |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Free** | $0/mo | $0/mo | 18+ Models | 10 / day | 20 / day | 5 / day | — | 30 days auto-purge |
+| **Starter** | $8/mo | $6.40/mo | 70+ Models | 50 / day | 60 / day | 30 / day | 10 / day | 3 months auto-delete |
+| **Pro** | $29/mo | $23.20/mo | Unlimited (75+) | 250 / day | 200 / day | 100 / day | 50 / day | Permanent (No Expiry) |
+
+*All plans include native BYOK integration with 0% platform surcharge.*
+
+---
+
+## 5. Frequently Asked Questions (FAQ)
+
+### Q: Is Sree AI self-hostable?
+**A**: Yes. Sree AI is designed to be fully self-hostable. You can deploy our application frontend, API gateway, and database containers directly into your private cloud (AWS VPC, GCP project) or on-premise hardware infrastructure.
+
+### Q: What AI tools and models are included in Sree AI?
+**A**: Sree AI unifies Sree Chat (75+ open LLMs), Sree Voice (sub-50ms real-time audio synthesis), Sree Image (FLUX.1 & Nano Banana), Sree Video (Google Veo 3.1 & Google Omni Flash), 2D to 3D Convertor, and AI Humanizer & Enhancer under one unified account.
+
+### Q: How does Bring Your Own Keys (BYOK) work?
+**A**: BYOK allows you to connect your own API keys from inference providers like NVIDIA, Google, Groq, and Deepgram (with Anthropic & OpenAI support coming soon). When enabled, your requests route directly through your keys with zero platform markups across all plans.
+
+### Q: What are the storage retention policies?
+**A**: On the Free plan ($0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo), data is retained for 3 months. On Pro ($29/mo), your data has no expiration period.
+
+---
+
+## 6. Official Legal & Policy Links
+
+- **Terms of Service**: https://app.sreeai.qzz.io/terms
+- **Privacy Policy**: https://app.sreeai.qzz.io/privacy
+- **Security & BYOK**: https://app.sreeai.qzz.io/security
+- **Refund & Cancellation**: https://app.sreeai.qzz.io/refund-policy
+- **Acceptable Use Policy**: https://app.sreeai.qzz.io/acceptable-use
+- **Cookie Policy**: https://app.sreeai.qzz.io/cookies
+
+---
+
+## 7. Contact Information
+- **Support**: support@sreeai.qzz.io
+- **Feature Requests**: https://app.sreeai.qzz.io/feature-request
+- **GitHub**: https://github.com/sree-ai-assistant/sree.ai

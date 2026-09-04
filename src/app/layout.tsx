@@ -70,6 +70,20 @@ export const metadata: Metadata = {
       },
     ],
   },
+  alternates: {
+    canonical: "https://sreeai.qzz.io",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   twitter: {
     card: "summary",
     title: "Sree AI — The Next-Gen Multimodal AI Platform",
@@ -78,6 +92,99 @@ export const metadata: Metadata = {
     images: ["https://sreeai.qzz.io/og-image.jpg"],
   },
 };
+
+const jsonLdData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Sree AI Platform Inc.",
+    "url": "https://sreeai.qzz.io",
+    "logo": "https://app.sreeai.qzz.io/Sree-ai-Primary-logo.png",
+    "sameAs": [
+      "https://github.com/sree-ai-assistant/sree.ai",
+      "https://x.com",
+      "https://discord.gg",
+      "https://linkedin.com"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "support@sreeai.qzz.io",
+      "contactType": "customer support"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Sree AI",
+    "url": "https://sreeai.qzz.io",
+    "description": "Unified multimodal AI platform featuring 75+ open LLMs, sub-50ms real-time voice, FLUX.1 & Nano Banana image generation, Google Veo 3.1 & Omni Flash 4K video, 2D to 3D spatial models, and BYOK zero-markup architecture."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Sree AI Platform",
+    "operatingSystem": "Web, Cloud, Self-Hosted",
+    "applicationCategory": "MultimediaApplication",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free Plan",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Starter Plan",
+        "price": "8",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro Plan",
+        "price": "29",
+        "priceCurrency": "USD"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Sree AI self-hostable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Sree AI is designed to be fully self-hostable. You can deploy our application frontend, API gateway, and database containers directly into your private cloud (AWS VPC, GCP project) or on-premise hardware infrastructure."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What AI tools and models are included in Sree AI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sree AI unifies Sree Chat (75+ open LLMs), Sree Voice (sub-50ms real-time audio synthesis), Sree Image (FLUX.1 & Nano Banana), Sree Video (Google Veo 3.1 & Google Omni Flash), 2D to 3D Convertor, and AI Humanizer & Enhancer under one unified account."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Bring Your Own Keys (BYOK) work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BYOK allows you to connect your own API keys from inference providers like NVIDIA, Google, Groq, and Deepgram (with Anthropic & OpenAI support coming soon). When enabled, your requests route directly through your keys with zero platform markups across all plans."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the storage retention policies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On the Free plan ($0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo), data is retained for 3 months. On Pro ($29/mo), your data has no expiration period."
+        }
+      }
+    ]
+  }
+];
 
 export default function RootLayout({
   children,
@@ -100,6 +207,14 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
           rel="stylesheet"
         />
+        {/* AEO & SEO JSON-LD Structured Data */}
+        {jsonLdData.map((schema, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <PostHogProvider>{children}</PostHogProvider>

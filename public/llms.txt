@@ -1,0 +1,41 @@
+# Sree AI
+
+> Sree AI is a unified next-generation multimodal artificial intelligence platform. It seamlessly integrates open-weight Large Language Models (75+ models including DeepSeek-V3, Llama 3.3, Qwen 2.5), ultra-low latency real-time voice synthesis (sub-50ms via distributed Edge WebSockets), studio-grade photorealistic image generation (FLUX.1 & Nano Banana), 4K video generation (Google Veo 3.1 & Google Omni Flash), 2D-to-3D spatial mesh converter, and an AI text humanizer. Sree AI provides native Bring Your Own Keys (BYOK) support allowing users to route API calls directly through NVIDIA, Google, Groq, and Deepgram with 0% platform markups, as well as full private cloud and on-premise self-hostability.
+
+## Core Platform Tools
+
+- [Sree Chat](https://app.sreeai.qzz.io): Unified intelligence suite featuring 75+ open-weight LLMs, full context retrieval, coding assistance, and reasoning benchmarks.
+- [Sree Voice](https://app.sreeai.qzz.io/voice): Sub-50ms ultra-low latency real-time voice streaming engine built on persistent bidirectional WebSockets and distributed edge nodes.
+- [Sree Image](https://app.sreeai.qzz.io/image): Photorealistic graphics and concept art generator powered by FLUX.1 and Nano Banana models.
+- [Sree Video](https://app.sreeai.qzz.io/video): High-fidelity 4K motion synthesis and camera physics powered by Google Veo 3.1 and Google Omni Flash.
+- [2D to 3D Convertor](https://sreeai.qzz.io/#tools): Spatial 3D asset generation transforming 2D imagery into clean, production-ready OBJ/GLTF 3D meshes (Coming Soon).
+- [AI Humanizer & Enhancer](https://sreeai.qzz.io/#tools): AI text naturalization tool that eliminates robotic syntactic patterns and enhances text clarity (Coming Soon).
+
+## Architecture & Capabilities
+
+- [BYOK (Bring Your Own Key)](https://sreeai.qzz.io/#architecture): Secure client-side credential encryption allowing direct routing through NVIDIA Cloud, Google Gemini, Groq, Deepgram, Anthropic, and OpenAI.
+- [Self-Hostable Infrastructure](https://sreeai.qzz.io/#faq): Complete dockerized frontend, API gateway, and edge worker containers deployable inside AWS VPC, GCP, or private on-prem bare metal.
+- [Data Retention Policies](https://sreeai.qzz.io/#pricing): 30-day auto-purge on Free tier, 3-month retention on Starter tier, and permanent storage on Pro tier.
+
+## Pricing & Subscription Tiers
+
+- [Free Plan ($0/mo)](https://sreeai.qzz.io/#pricing): 18+ models, 10 chats/day, 20 voice requests/day, 5 image generations/day, BYOK enabled, 30 days storage.
+- [Starter Plan ($8/mo or $6.40/mo billed annually)](https://sreeai.qzz.io/#pricing): 70+ models, 50 chats/day, 60 voice requests/day, 30 images/day, 10 videos/day, BYOK enabled, 3 months storage, access to all tools.
+- [Pro Plan ($29/mo or $23.20/mo billed annually)](https://sreeai.qzz.io/#pricing): Unlimited model access (75+ models), 250 chats/day, 200 voice requests/day, 100 images/day, 50 videos/day, priority processing queues, permanent storage, early beta access.
+
+## Legal & Compliance Policies
+
+- [Terms of Service](https://app.sreeai.qzz.io/terms): Platform usage terms, licensing, and account policies.
+- [Privacy Policy](https://app.sreeai.qzz.io/privacy): Data protection, telemetry handling, and GDPR/CCPA compliance.
+- [Security & BYOK](https://app.sreeai.qzz.io/security): Cryptographic standards, zero-logging key persistence, and edge security protocols.
+- [Refund & Cancellation](https://app.sreeai.qzz.io/refund-policy): Subscription refund rules, cancellation flow, and billing dispute processes.
+- [Acceptable Use Policy](https://app.sreeai.qzz.io/acceptable-use): Safety guidelines, prohibited generation domains, and ethical AI standards.
+- [Cookie Policy](https://app.sreeai.qzz.io/cookies): Cookie classifications, analytics opt-in/opt-out, and telemetry storage.
+
+## Developer & Community Resources
+
+- [App Application](https://app.sreeai.qzz.io): Web application portal for active users.
+- [GitHub Repository](https://github.com/sree-ai-assistant/sree.ai): Open source codebase and documentation.
+- [Feature Requests](https://app.sreeai.qzz.io/feature-request): Public feedback and feature voting board.
+- [Technical Support](mailto:support@sreeai.qzz.io): Direct developer support email.
+- [Full LLM Specification](https://sreeai.qzz.io/llms-full.txt): Comprehensive deep context for LLM RAG pipelines.

@@ -1,0 +1,86 @@
+# ==============================================================================
+# Sree AI - Next-Gen Multimodal AI Platform
+# https://sreeai.qzz.io
+# Robots & AI Agent Crawling Policy
+# ==============================================================================
+# For LLM & AI Answer Engines, please read our structured LLM manifest:
+# https://sreeai.qzz.io/llms.txt
+# Full Documentation for AI RAG: https://sreeai.qzz.io/llms-full.txt
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Standard Web Search Engines (Google, Bing, Yahoo, DuckDuckGo, etc.)
+# ------------------------------------------------------------------------------
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /scratch/
+
+# ------------------------------------------------------------------------------
+# 2. Generative Engine & AI Search Crawlers (AEO / GEO Optimization)
+# Explicitly welcome top AI Answer Engines for accurate platform citation & index
+# ------------------------------------------------------------------------------
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /api/
+
+# Anthropic Claude
+User-agent: ClaudeBot
+Allow: /
+Disallow: /api/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /api/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /api/
+
+# Perplexity AI Search
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
+
+# Google Gemini / Extended
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+
+# Amazon Rufus / Alexa
+User-agent: Amazonbot
+Allow: /
+Disallow: /api/
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+Disallow: /api/
+
+# Meta AI
+User-agent: meta-externalagent
+Allow: /
+Disallow: /api/
+
+# Common Crawl & Open Research
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+
+# ------------------------------------------------------------------------------
+# 3. Host and Sitemap Specifications
+# ------------------------------------------------------------------------------
+Host: https://sreeai.qzz.io
+Sitemap: https://sreeai.qzz.io/sitemap.xml
