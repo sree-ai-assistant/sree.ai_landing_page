@@ -32,6 +32,7 @@ import WaitlistModal from "@/components/WaitlistModal";
 // AI Models & Tech Stack Logos Marquee
 const partnerLogos = [
   { name: "DeepSeek V3", desc: "Reasoning & Logic AI" },
+  { name: "Google Gemini 3.8", desc: "Multimodal Intelligence" },
   { name: "Meta Llama 3.3", desc: "Open-Weights Foundation" },
   { name: "Google Gemini 3.7", desc: "Multimodal Intelligence" },
   { name: "Google Omni Flash", desc: "Real-Time Multimodal Speech & Vision" },
@@ -40,6 +41,8 @@ const partnerLogos = [
   { name: "FLUX.1 & FLUX.2", desc: "Photorealistic Image Gen" },
   { name: "Qwen 2.5 Coder", desc: "Specialized Code AI" },
   { name: "Mistral Large", desc: "Mixture of Experts" },
+  { name: "DeepSeek V4", desc: "Reasoning & Logic AI" },
+  { name: "DeepSeek V4 Pro", desc: "Reasoning & Logic AI" },
   { name: "NVIDIA NIM", desc: "Accelerated GPU Inference" },
   { name: "Groq LPU", desc: "Ultra-Low Latency Engine" },
   { name: "Google Veo 3.1", desc: "Cinematic 4K Video Gen" },

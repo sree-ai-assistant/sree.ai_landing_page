@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Multimodal AI",
     "Open Weights LLM",
     "DeepSeek V3",
+    "DeepSeek V4",
+    "DeepSeek V4 Pro",
     "Real-time Voice AI",
     "FLUX.1",
     "Nano Banana",
