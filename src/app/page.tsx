@@ -27,6 +27,7 @@ import ToolsGrid from "@/components/ToolsGrid";
 import PricingSection from "@/components/PricingSection";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
+import DownloadSection from "@/components/DownloadSection";
 import WaitlistModal from "@/components/WaitlistModal";
 
 // AI Models & Tech Stack Logos Marquee
@@ -371,6 +372,9 @@ export default function Home() {
                 </div>
               </div>
             </section>
+
+            {/* CROSS-PLATFORM APPS & CLIENTS DOWNLOAD SECTION */}
+            <DownloadSection onOpenWaitlist={handleOpenWaitlist} />
 
             {/* TESTIMONIALS SECTION */}
             <section className="hidden relative py-24 border-t border-white/5 overflow-hidden">

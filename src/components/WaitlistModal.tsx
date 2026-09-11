@@ -121,10 +121,14 @@ export default function WaitlistModal({
 
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
-                  Join Upcoming Tools Early Access
+                  {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS")
+                    ? `Get Notified for ${tool}`
+                    : "Join Upcoming Tools Early Access"}
                 </h3>
                 <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
-                  Get early access to our upcoming <strong className="text-white">2D to 3D Convertor</strong> and <strong className="text-white">AI Humanizer & Enhancer</strong> tools. Once access is available, we will let you know right away!
+                  {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS")
+                    ? `Be first in line to receive the official download link and TestFlight/beta invite for ${tool}.`
+                    : <>Get early access to our upcoming <strong className="text-white">2D to 3D Convertor</strong> and <strong className="text-white">AI Humanizer & Enhancer</strong> tools. Once access is available, we will let you know right away!</>}
                 </p>
               </div>
 
@@ -138,14 +142,23 @@ export default function WaitlistModal({
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-1">
                 <div>
                   <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
-                    Select Tool to Unlock Early
+                    {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS")
+                      ? "Select Platform"
+                      : "Select Tool to Unlock Early"}
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                    {[
-                      { id: "2D to 3D Convertor", label: "2D to 3D" },
-                      { id: "AI Humanizer & Enhancer", label: "Humanizer" },
-                      { id: "Both Tools", label: "Both Tools" },
-                    ].map((item) => (
+                    {(tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS")
+                      ? [
+                          { id: "iOS App", label: "iOS (Apple)" },
+                          { id: "Windows App", label: "Windows" },
+                          { id: "macOS App", label: "macOS" },
+                        ]
+                      : [
+                          { id: "2D to 3D Convertor", label: "2D to 3D" },
+                          { id: "AI Humanizer & Enhancer", label: "Humanizer" },
+                          { id: "Both Tools", label: "Both Tools" },
+                        ]
+                    ).map((item) => (
                       <button
                         key={item.id}
                         type="button"

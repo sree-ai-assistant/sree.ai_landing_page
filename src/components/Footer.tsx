@@ -112,6 +112,14 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
                 </a>
               </li>
               <li>
+                <a href="#download" onClick={(e) => handleNavClick(e, "#download")} className="hover:text-white transition duration-150 flex items-center gap-1.5">
+                  <span>Download Apps</span>
+                  <span className="text-[10px] bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 px-1.5 py-0.5 rounded font-semibold">
+                    APK
+                  </span>
+                </a>
+              </li>
+              <li>
                 <a href="#pricing" onClick={(e) => handleNavClick(e, "#pricing")} className="hover:text-white transition duration-150">
                   Pricing
                 </a>
