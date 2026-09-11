@@ -30,7 +30,7 @@ export default function DownloadSection({ onOpenWaitlist }: DownloadSectionProps
   };
 
   return (
-    <section id="download" className="relative py-20 md:py-28 border-t border-white/5 overflow-hidden">
+    <section id="download" className="relative py-10 md:py-14 border-t border-white/5 overflow-hidden">
       {/* Background ambient neon glow spheres */}
       <div className="absolute top-1/4 -left-48 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 -right-48 w-96 h-96 bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
@@ -38,7 +38,7 @@ export default function DownloadSection({ onOpenWaitlist }: DownloadSectionProps
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 md:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +74,7 @@ export default function DownloadSection({ onOpenWaitlist }: DownloadSectionProps
         </div>
 
         {/* Platforms Container */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-stretch mb-12 md:mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-stretch mb-6 md:mb-8">
           {/* ANDROID FEATURED CARD - Always prominent */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}

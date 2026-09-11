@@ -102,13 +102,13 @@ const TOOLS = [
 
 export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
   return (
-    <section id="tools" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="tools" className="relative py-10 md:py-14 overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-600/10 blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -233,7 +233,7 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-16 rounded-xl border border-blue-500/20 bg-gradient-to-r from-blue-950/40 via-indigo-950/40 to-purple-950/40 p-6 md:p-8 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6"
+          className="mt-8 md:mt-10 rounded-xl border border-blue-500/20 bg-gradient-to-r from-blue-950/40 via-indigo-950/40 to-purple-950/40 p-6 md:p-8 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="flex items-center gap-4">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-blue-500/20 border border-blue-500/30 text-blue-400">

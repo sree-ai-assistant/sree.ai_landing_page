@@ -40,29 +40,59 @@ export default function Navbar({ onOpenWaitlist }: NavbarProps) {
     }
   });
 
-  // Track active section on scroll
+  // Track active section on scroll using accurate viewport focal-point detection
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY < 300) {
+      // 1. If at or near top of the page, Home is active
+      if (window.scrollY < 200) {
         setActiveSection("#");
         return;
       }
 
-      const sections = NAV_ITEMS.filter((item) => item.href !== "#").map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 200;
+      // 2. If scrolled near the very bottom of the page, activate the last section (FAQ)
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+        const lastSection = NAV_ITEMS[NAV_ITEMS.length - 1];
+        if (lastSection) setActiveSection(lastSection.href);
+        return;
+      }
 
-      let matched = false;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(`#${sections[i]}`);
-          matched = true;
+      // 3. Focal reading point: 160px from top (comfortably below the 58px floating navbar)
+      const focalPoint = 160;
+      let matchedSection: string | null = null;
+
+      // Check which section actually encompasses the focal point
+      for (const item of NAV_ITEMS) {
+        if (item.href === "#") continue;
+        const id = item.href.substring(1);
+        const el = document.getElementById(id);
+        if (!el) continue;
+
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= focalPoint && rect.bottom > focalPoint) {
+          matchedSection = item.href;
           break;
         }
       }
 
-      if (!matched) {
-        setActiveSection("#");
+      // 4. Fallback: if between sections or in fast scroll, select the closest section above focalPoint
+      if (!matchedSection) {
+        let bestTop = -Infinity;
+        for (const item of NAV_ITEMS) {
+          if (item.href === "#") continue;
+          const id = item.href.substring(1);
+          const el = document.getElementById(id);
+          if (!el) continue;
+
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= focalPoint && rect.top > bestTop) {
+            bestTop = rect.top;
+            matchedSection = item.href;
+          }
+        }
+      }
+
+      if (matchedSection) {
+        setActiveSection(matchedSection);
       }
     };
 

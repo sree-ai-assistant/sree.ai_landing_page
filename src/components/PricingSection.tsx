@@ -145,13 +145,13 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
   };
 
   return (
-    <section id="pricing" className="relative py-12  overflow-hidden">
+    <section id="pricing" className="relative py-10 md:py-14 border-t border-white/5 overflow-hidden">
       {/* Glow aura */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-indigo-600/10 blur-[150px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

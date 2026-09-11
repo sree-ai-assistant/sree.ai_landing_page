@@ -79,13 +79,13 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="relative py-24 md:py-18 overflow-hidden">
+    <section id="faq" className="relative py-10 md:py-14 border-t border-white/5 overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/10 blur-[130px] pointer-events-none rounded-full" />
 
       <div className="max-w-4xl mx-auto px-6 md:px-10 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-6 md:mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

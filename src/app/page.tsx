@@ -303,9 +303,9 @@ export default function Home() {
             <ToolsGrid onOpenWaitlist={handleOpenWaitlist} />
 
             {/* ARCHITECTURE & SECURITY INFRASTRUCTURE SECTION */}
-            <section id="architecture" className="relative py-24 border-t border-white/5">
+            <section id="architecture" className="relative py-10 md:py-14 border-t border-white/5">
               <div className="max-w-7xl mx-auto px-6 md:px-10">
-                <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="text-center max-w-3xl mx-auto mb-6 md:mb-8">
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-4">
                     <Server className="h-3.5 w-3.5" />
                     Enterprise Security & Edge Nodes
