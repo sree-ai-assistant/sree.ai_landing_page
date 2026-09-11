@@ -121,12 +121,12 @@ export default function WaitlistModal({
 
               <div>
                 <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
-                  {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS")
+                  {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS") || tool.includes("Platform")
                     ? `Get Notified for ${tool}`
                     : "Join Upcoming Tools Early Access"}
                 </h3>
                 <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
-                  {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS")
+                  {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS") || tool.includes("Platform")
                     ? `Be first in line to receive the official download link and TestFlight/beta invite for ${tool}.`
                     : <>Get early access to our upcoming <strong className="text-white">2D to 3D Convertor</strong> and <strong className="text-white">AI Humanizer & Enhancer</strong> tools. Once access is available, we will let you know right away!</>}
                 </p>
@@ -142,30 +142,31 @@ export default function WaitlistModal({
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-1">
                 <div>
                   <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
-                    {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS")
+                    {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS") || tool.includes("Platform")
                       ? "Select Platform"
                       : "Select Tool to Unlock Early"}
                   </label>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                    {(tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS")
+                  <div className={`grid gap-2 ${tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS") || tool.includes("Platform") ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-1 sm:grid-cols-3"}`}>
+                    {(tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS") || tool.includes("Platform")
                       ? [
-                          { id: "iOS App", label: "iOS (Apple)" },
-                          { id: "Windows App", label: "Windows" },
-                          { id: "macOS App", label: "macOS" },
-                        ]
+                        { id: "iOS App", label: "iOS (Apple)" },
+                        { id: "Windows App", label: "Windows" },
+                        { id: "macOS App", label: "macOS" },
+                        { id: "All Upcoming Platforms (All APPs)", label: "All Platforms" },
+                      ]
                       : [
-                          { id: "2D to 3D Convertor", label: "2D to 3D" },
-                          { id: "AI Humanizer & Enhancer", label: "Humanizer" },
-                          { id: "Both Tools", label: "Both Tools" },
-                        ]
+                        { id: "2D to 3D Convertor", label: "2D to 3D" },
+                        { id: "AI Humanizer & Enhancer", label: "Humanizer" },
+                        { id: "Both Tools", label: "Both Tools" },
+                      ]
                     ).map((item) => (
                       <button
                         key={item.id}
                         type="button"
                         onClick={() => setTool(item.id)}
-                        className={`py-2.5 px-3 rounded-lg text-xs font-semibold border transition-all duration-200 ${tool === item.id || tool.includes(item.id)
-                            ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
-                            : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
+                        className={`py-2 px-2 rounded-lg text-xs font-semibold border transition-all duration-200 ${tool === item.id || tool.includes(item.id)
+                          ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+                          : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
                           }`}
                       >
                         {item.label}
