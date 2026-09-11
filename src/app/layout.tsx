@@ -41,9 +41,14 @@ export const metadata: Metadata = {
     "Sree AI Convertor",
   ],
   icons: {
-    icon: "/Sree-Ai-Fav-icon.png",
-    shortcut: "/Sree-Ai-Fav-icon.png",
-    apple: "/Sree-Ai-Fav-icon.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/Sree-Ai-Fav-icon-round.png", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
@@ -219,8 +224,11 @@ export default function RootLayout({
     >
       <head>
         <meta name="theme-color" content="#030014" />
-        <link rel="icon" type="image/png" href="/Sree-Ai-Fav-icon.png" />
-        <link rel="apple-touch-icon" href="/Sree-Ai-Fav-icon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" href="/Sree-Ai-Fav-icon-round.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
