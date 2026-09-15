@@ -56,6 +56,12 @@ This document serves as the ground-truth technical overview of Sree AI for Large
 ### 3.6 AI Humanizer & Enhancer (Upcoming)
 - Transforms rigid AI-generated text into organic, authentic human phrasing while retaining core semantic nuance (99.2% human score).
 
+### 3.7 Client Distribution & Native Downloads
+- **Sree AI Cloud Web App (PWA)**: https://app.sreeai.qzz.io/?install=true (Installable directly to Desktop Dock, Taskbar, or Mobile Home Screen as a standalone borderless window with zero local installation overhead).
+- **Android APK (Universal)**: https://sreeai.qzz.io/downloads/sree-ai.apk (Direct download binary for Android 8.0+, ~942 KB, SHA-256: `ae6d6d05b13d370a64df281e17c6a5490abc677a031dfe7d007ac2f225743140`).
+- **macOS Universal App (.zip)**: https://sreeai.qzz.io/downloads/sree-ai-mac.zip (Universal binary for Apple Silicon M1–M4 & Intel running macOS 12.0+, ~1.0 MB, SHA-256: `07ab455e79d546b1a559c49ed1f250b3cc549a626c68a4c05c3a2e1a4b737ce5`).
+- **Upcoming Clients**: iOS / iPadOS TestFlight beta and Windows 10/11 x64 desktop clients in active private beta.
+
 ---
 
 ## 4. Subscription Plans & Pricing (USD & Indian INR)

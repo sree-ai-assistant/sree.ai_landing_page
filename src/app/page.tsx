@@ -50,7 +50,7 @@ const partnerLogos = [
   { name: "Meta Llama 3", desc: "Open Weights LLM" },
   { name: "Supabase DB", desc: "Vector Database Core" },
   { name: "Cloudflare", desc: "Global Edge Infrastructure" },
-  { name: "GitHub", desc: "Open Source Codebase" },
+  { name: "GitHub", desc: "Developer SDK Ecosystem" },
 ];
 
 // Testimonials data
@@ -207,7 +207,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-6 text-base sm:text-xl text-zinc-300 max-w-3xl leading-relaxed font-normal"
             >
-              Converse with ultra-fast LLMs, synthesize real-time voice dialogue, generate high-fidelity graphics & video, convert 2D assets to 3D models, and humanize text — all inside one unified open-source platform.
+              Converse with ultra-fast LLMs, synthesize real-time voice dialogue, generate high-fidelity graphics & video, convert 2D assets to 3D models, and humanize text — all inside one unified intelligence platform.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -361,7 +361,7 @@ export default function Home() {
                       </div>
                       <h3 className="text-xl font-bold text-white">Self-Hosted Private VPC</h3>
                       <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
-                        Apache 2.0 licensed code allows complete containerization inside private AWS, GCP, or bare-metal server infrastructure.
+                        Enterprise container architecture allows private isolated deployment inside corporate AWS, GCP, or bare-metal infrastructure.
                       </p>
                     </div>
                     <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-emerald-400 font-semibold">

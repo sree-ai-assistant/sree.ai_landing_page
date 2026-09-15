@@ -130,8 +130,10 @@ const jsonLdData = [
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "Sree AI Platform",
-    "operatingSystem": "Web, Cloud, Self-Hosted",
+    "operatingSystem": "Web, Android, macOS, Cloud, Self-Hosted",
     "applicationCategory": "MultimediaApplication",
+    "softwareVersion": "1.0.0",
+    "downloadUrl": "https://sreeai.qzz.io/#download",
     "offers": [
       {
         "@type": "Offer",

@@ -11,6 +11,13 @@
 - [2D to 3D Convertor](https://sreeai.qzz.io/#tools): Spatial 3D asset generation transforming 2D imagery into clean, production-ready OBJ/GLTF 3D meshes (Coming Soon).
 - [AI Humanizer & Enhancer](https://sreeai.qzz.io/#tools): AI text naturalization tool that eliminates robotic syntactic patterns and enhances text clarity (Coming Soon).
 
+## Official Downloads & Client Applications
+
+- [Sree AI Web App (PWA)](https://app.sreeai.qzz.io/?install=true): Installable Progressive Web App for Desktop Dock, Windows Taskbar, and Mobile Home Screen.
+- [Android APK Download](https://sreeai.qzz.io/downloads/sree-ai.apk): Standalone APK binary for Android 8.0+ devices (Version v1.0.0, ~942 KB, SHA-256: `ae6d6d05b13d370a64df281e17c6a5490abc677a031dfe7d007ac2f225743140`).
+- [macOS Universal App Download](https://sreeai.qzz.io/downloads/sree-ai-mac.zip): Standalone ZIP package for macOS 12.0+ supporting Apple Silicon (M1–M4) and Intel (Version v1.0.0, ~1.0 MB, SHA-256: `07ab455e79d546b1a559c49ed1f250b3cc549a626c68a4c05c3a2e1a4b737ce5`).
+- [Upcoming Native Clients](https://sreeai.qzz.io/#download): Apple TestFlight for iOS/iPadOS and Windows Desktop 64-bit clients in active preparation.
+
 ## Architecture & Capabilities
 
 - [BYOK (Bring Your Own Key)](https://sreeai.qzz.io/#architecture): Secure client-side credential encryption allowing direct routing through NVIDIA Cloud, Google Gemini, Groq, and Deepgram (Anthropic & OpenAI coming soon).
@@ -35,7 +42,7 @@
 ## Developer & Community Resources
 
 - [Web Application](https://app.sreeai.qzz.io): Web application portal for active users.
-- [GitHub Repository](https://github.com/sree-ai-assistant/sree.ai): Open source codebase and documentation.
+- [GitHub Portal](https://github.com/sree-ai-assistant/sree.ai): Developer documentation, integration guides, and client SDKs.
 - [Feature Requests](https://app.sreeai.qzz.io/feature-request): Public feedback and feature voting board.
 - [Technical Support](mailto:support@sreeai.qzz.io): Direct developer support email (support@sreeai.qzz.io).
 - [Full LLM Specification](https://sreeai.qzz.io/llms-full.txt): Comprehensive deep context for LLM RAG pipelines.
