@@ -142,17 +142,16 @@ export default function WaitlistModal({
               <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-1">
                 <div>
                   <label className="block text-xs font-semibold text-zinc-300 uppercase tracking-wider mb-2">
-                    {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS") || tool.includes("Platform")
+                    {tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("Platform")
                       ? "Select Platform"
                       : "Select Tool to Unlock Early"}
                   </label>
-                  <div className={`grid gap-2 ${tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS") || tool.includes("Platform") ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-1 sm:grid-cols-3"}`}>
-                    {(tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("macOS") || tool.includes("Platform")
+                  <div className={`grid gap-2 ${tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("Platform") ? "grid-cols-1 sm:grid-cols-3" : "grid-cols-1 sm:grid-cols-3"}`}>
+                    {(tool.includes("App") || tool.includes("iOS") || tool.includes("Windows") || tool.includes("Platform")
                       ? [
                         { id: "iOS App", label: "iOS (Apple)" },
                         { id: "Windows App", label: "Windows" },
-                        { id: "macOS App", label: "macOS" },
-                        { id: "All Upcoming Platforms (All APPs)", label: "All Platforms" },
+                        { id: "All Upcoming Platforms", label: "All Upcoming Platforms" },
                       ]
                       : [
                         { id: "2D to 3D Convertor", label: "2D to 3D" },
@@ -164,7 +163,7 @@ export default function WaitlistModal({
                         key={item.id}
                         type="button"
                         onClick={() => setTool(item.id)}
-                        className={`py-2 px-2 rounded-lg text-xs font-semibold border transition-all duration-200 ${tool === item.id || tool.includes(item.id)
+                        className={`py-2 px-2.5 rounded-lg text-xs font-semibold border transition-all duration-200 text-center ${tool === item.id || tool.includes(item.id)
                           ? "bg-blue-600/20 border-blue-500 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                           : "bg-white/5 border-white/10 text-zinc-400 hover:text-white"
                           }`}
