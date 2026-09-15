@@ -151,7 +151,7 @@ export default function WaitlistModal({
                       ? [
                         { id: "iOS App", label: "iOS (Apple)" },
                         { id: "Windows App", label: "Windows" },
-                        { id: "All Upcoming Platforms", label: "All Upcoming Platforms" },
+                        { id: "All Upcoming Platforms (All Apps)", label: "All Upcoming Platforms" },
                       ]
                       : [
                         { id: "2D to 3D Convertor", label: "2D to 3D" },
