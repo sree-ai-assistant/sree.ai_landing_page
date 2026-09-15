@@ -79,18 +79,19 @@ export async function POST(request: Request) {
     const body = await request.json();
 
     const webhookUrl =
-      process.env.FAQ_QUESTION_WEBHOOK_URL ||
-      process.env.EARLY_ACCESS_WEBHOOK_URL ||
-      "https://n8n.nil.flare.my.to/webhook/72cee271-0b92-43e8-b88d-f755e9be7b37";
+      process.env.FAQ_QUESTION_WEBHOOK_URL || process.env.EARLY_ACCESS_WEBHOOK_URL;
+    const webhookSecret = process.env.EARLY_ACCESS_WEBHOOK_SECRET;
 
-    const webhookSecret =
-      process.env.EARLY_ACCESS_WEBHOOK_SECRET || "n8n-nil-sree-ai-early-access-2026";
+    if (!webhookUrl) {
+      console.warn("FAQ webhook URL is not set in environment. Skipping external webhook dispatch.");
+      return NextResponse.json({ success: true, queued: true });
+    }
 
     const response = await fetch(webhookUrl, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Webhook-Secret": webhookSecret,
+        ...(webhookSecret ? { "X-Webhook-Secret": webhookSecret } : {}),
       },
       body: JSON.stringify({
         request_type: "FaqQuestion",
