@@ -91,6 +91,7 @@ Sree-Ai-Landing-Page/
 │       ├── FaqSection.tsx       # Interactive FAQ accordion
 │       ├── WaitlistModal.tsx    # Multi-platform early access waitlist modal
 │       └── Footer.tsx           # Compliance, social links, legal disclaimers
+├── .env.example             # Template for environment variables (PostHog & Webhooks)
 ├── package.json
 ├── tsconfig.json
 └── next.config.ts
@@ -118,12 +119,19 @@ Sree-Ai-Landing-Page/
    npm install
    ```
 
-3. **Run the development server:**
+3. **Configure environment variables:**
+   ```bash
+   cp .env.example .env.local
+   # Or on Windows PowerShell:
+   # Copy-Item .env.example .env.local
+   ```
+
+4. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-4. **Open in browser:**
+5. **Open in browser:**
    Navigate to [http://localhost:3000](http://localhost:3000) to view the landing page.
 
 ### Production Build & Verification
