@@ -29,6 +29,7 @@ import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import DownloadSection from "@/components/DownloadSection";
 import WaitlistModal from "@/components/WaitlistModal";
+import AdSenseBanner from "@/components/AdSenseBanner";
 
 // AI Models & Tech Stack Logos Marquee
 const partnerLogos = [
@@ -299,6 +300,9 @@ export default function Home() {
           <CosmicDustBackground />
 
           <div className="relative z-10">
+            {/* PLACEMENT 1: Post-Hero Google AdSense */}
+            <AdSenseBanner slotId="8396505852" className="my-6" />
+
             {/* MEANINGFUL AI TOOLS SUITE GRID */}
             <ToolsGrid onOpenWaitlist={handleOpenWaitlist} />
 
@@ -426,6 +430,9 @@ export default function Home() {
 
             {/* FAQ ACCORDION SECTION */}
             <FaqSection />
+
+            {/* PLACEMENT 2: Pre-Footer Google AdSense */}
+            <AdSenseBanner slotId="8396505852" className="my-8" />
 
             {/* PROFESSIONAL MULTI-COLUMN FOOTER */}
             <Footer onOpenWaitlist={handleOpenWaitlist} />

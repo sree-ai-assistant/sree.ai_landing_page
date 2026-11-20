@@ -119,3 +119,11 @@ body {
   text-shadow: 0 0 20px rgba(139, 92, 246, 0.25);
 }
 
+/* AdSense dark mode & layout guard */
+ins.adsbygoogle {
+  background: transparent !important;
+}
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
+
