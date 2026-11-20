@@ -235,6 +235,13 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* Google AdSense */}
+        <meta name="google-adsense-account" content="ca-pub-2859422528584446" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2859422528584446"
+          crossOrigin="anonymous"
+        />
         <meta name="theme-color" content="#030014" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
