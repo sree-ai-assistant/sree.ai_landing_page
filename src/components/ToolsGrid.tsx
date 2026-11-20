@@ -36,14 +36,14 @@ const TOOLS = [
   {
     id: "voice",
     title: "Sree Voice",
-    category: "Real-Time Audio Synthesis",
+    category: "Gemini Live API & WebSockets",
     description:
-      "Sub-50ms latency voice dialogue. Direct WebSocket streaming connects text-to-speech & speech recognition for natural, human-like voice conversations.",
+      "Real-time voice dialogue powered by Google Gemini Live API. Persistent bidirectional WebSockets stream audio chunks continuously for instant, natural conversation without robotic delays.",
     icon: Mic,
-    badge: "Sub-50ms Latency",
+    badge: "Gemini Live API",
     gradient: "from-purple-600 via-pink-600 to-rose-600",
     glow: "shadow-[0_0_30px_rgba(168,85,247,0.3)]",
-    metrics: "Voice Latency: 42ms",
+    metrics: "Bidirectional Audio",
     isEarlyAccess: false,
   },
   {
@@ -95,7 +95,7 @@ const TOOLS = [
     badge: "Upcoming Tool",
     gradient: "from-violet-600 via-purple-600 to-indigo-600",
     glow: "shadow-[0_0_30px_rgba(139,92,246,0.3)]",
-    metrics: "Human Score: 99.2%",
+    metrics: "Style Polishing",
     isEarlyAccess: true,
   },
 ];
@@ -137,7 +137,7 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mt-4 text-base md:text-lg text-zinc-400 leading-relaxed"
           >
-            Stop juggling multiple subscriptions. Sree AI unifies text intelligence, real-time voice, photorealistic graphics, video generation, 3D assets, and text polishing in a single open platform.
+            Stop juggling multiple subscriptions. Sree AI unifies text intelligence, real-time voice, photorealistic graphics, video generation, 3D assets, and text polishing in a single unified platform.
           </motion.p>
         </div>
 
@@ -241,10 +241,10 @@ export default function ToolsGrid({ onOpenWaitlist }: ToolsGridProps) {
             </div>
             <div>
               <h4 className="text-lg font-semibold text-white">
-                Bring Your Own Keys (BYOK) Guarantee
+                Bring Your Own Keys (BYOK) Architecture
               </h4>
               <p className="text-sm text-zinc-400 mt-1">
-                Prefer using your own OpenAI, Anthropic, or Replicate API keys? All Sree AI tools support zero-markup BYOK on all plans ($0 Free, Starter, and Pro).
+                Prefer using your own API keys? Sree AI connects directly to Google Gemini, NVIDIA Cloud, and Groq (with OpenAI and Anthropic integrations in progress). All keys route client-side with 0% platform surcharge across all plans.
               </p>
             </div>
           </div>

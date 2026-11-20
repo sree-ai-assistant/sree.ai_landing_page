@@ -96,7 +96,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
         "Chat, image & video storage (no expiration)",
         "Unlimited chat history search",
         "Highest priority GPU queues",
-        "Dedicated 24/7 VIP developer support",
+        "Priority developer support via email & Discord",
         "Access to all tools (incl. 2D to 3D Convertor)",
       ],
     },
@@ -131,7 +131,7 @@ export default function PricingSection({ onOpenWaitlist }: PricingSectionProps) 
     { name: "Access to Flagship Models", free: false, starter: true, pro: true },
     { name: "Priority GPU Queues", free: false, starter: false, pro: true },
     { name: "Bring Your Own Keys (BYOK)", free: true, starter: true, pro: true },
-    { name: "Support SLA Priority", free: "Standard", starter: "Standard", pro: "24/7 VIP Priority" },
+    { name: "Support SLA Priority", free: "Community", starter: "Standard Email", pro: "Priority Support" },
   ];
 
   const handleToggleComparison = () => {

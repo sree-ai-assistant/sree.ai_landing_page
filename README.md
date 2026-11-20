@@ -17,7 +17,7 @@
 ### Key Capabilities
 
 * **🧠 Sree Chat (75+ Flagship LLMs):** DeepSeek-V3, Llama 3.3 70B, Qwen 2.5 Coder, Mistral Large, and Gemma with live web search and citations.
-* **🎙️ Sree Voice (Sub-50ms Speech):** Direct bidirectional WebSocket edge pipelines connecting text-to-speech & speech recognition with zero local compile delay.
+* **🎙️ Sree Voice (Gemini Live API & WebSockets):** Low-latency voice dialogue powered by Google Gemini Live API over persistent bidirectional WebSockets, streaming audio chunks continuously without REST delay.
 * **🎨 Sree Image & Video:** FLUX.1 (Schnell & Dev) photorealism, Nano Banana, Google Veo 3.1, and Google Omni Flash cinematic 4K generation.
 * **🔑 Zero-Markup BYOK:** Direct client-side key routing through NVIDIA Cloud, Google Gemini, Groq, and Deepgram with 0% platform markup.
 * **🛡️ Self-Hostable:** Dockerized container architecture deployable inside private VPCs (AWS, GCP, Azure) or on-premise infrastructure.

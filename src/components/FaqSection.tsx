@@ -7,27 +7,33 @@ import { ChevronDown, HelpCircle, Send, CheckCircle2, AlertCircle, MessageSquare
 const FAQ_ITEMS = [
   {
     id: 1,
-    question: "Is Sree AI self-hostable?",
+    question: "How does Sree Voice achieve low latency in real-time voice mode?",
     answer:
-      "Yes. Sree AI is designed to be fully self-hostable. You can deploy our application frontend, API gateway, and database containers directly into your private cloud (AWS VPC, GCP project) or on-premise hardware infrastructure.",
+      "Sree Voice achieves ultra-low latency by leveraging the Google Gemini Live API over persistent bidirectional WebSockets. Instead of standard REST requests that require recording a full audio file, uploading it, waiting for speech-to-text, and then synthesizing a response, WebSockets maintain an active, full-duplex stream between your microphone and the server. Audio chunks stream continuously in real time as you speak, allowing immediate turnaround, fluid conversational interruptions, and instant speech synthesis without awkward robotic pauses.",
   },
   {
     id: 2,
-    question: "What AI tools and models are included in Sree AI?",
+    question: "Is Sree AI self-hostable?",
     answer:
-      "Sree AI unifies Sree Chat (75+ open LLMs), Sree Voice (sub-50ms real-time audio synthesis), Sree Image (FLUX.1 & Nano Banana), Sree Video (Google Veo 3.1 & Google Omni Flash), 2D to 3D Convertor, and AI Humanizer & Enhancer under one unified account.",
+      "Yes. Sree AI provides containerized deployment options for enterprise customers. Organizations requiring isolated private cloud environments can deploy the frontend, API gateway, and database containers directly within private AWS, GCP, or on-premise infrastructure under custom enterprise setups.",
   },
   {
     id: 3,
-    question: "How does Bring Your Own Keys (BYOK) work?",
+    question: "What AI tools and models are included in Sree AI?",
     answer:
-      "BYOK allows you to connect your own API keys from inference providers like NVIDIA, Google, Groq, and Deepgram (with Anthropic & OpenAI support coming soon). When enabled, your requests route directly through your keys with zero platform markups across all plans.",
+      "Sree AI unifies Sree Chat (75+ models including DeepSeek-V3, DeepSeek-R1, Llama 3.3, and Qwen), Sree Voice (powered by Google Gemini Live API via WebSockets), Sree Image (FLUX.1 and Nano Banana), Sree Video (Google Veo), plus upcoming 2D to 3D Convertor and AI Humanizer under a single unified dashboard.",
   },
   {
     id: 4,
+    question: "How does Bring Your Own Keys (BYOK) work?",
+    answer:
+      "BYOK allows you to connect your own API keys from supported inference providers like Google Gemini, NVIDIA Cloud, and Groq (with OpenAI and Anthropic integrations in active progress). When enabled, your requests route directly through your personal keys with zero platform markups across all plans.",
+  },
+  {
+    id: 5,
     question: "What are the storage retention policies?",
     answer:
-      "On the Free plan ($0 / ₹0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo or ₹399/mo), data is retained for 3 months. On Pro ($29/mo or ₹899/mo), your data has no expiration period.",
+      "On the Free plan ($0 / ₹0), generated chats, audio streams, and images are stored for 30 days before automatic cleanup. On Starter ($8/mo or ₹399/mo), data is retained for 3 months. On Pro ($29/mo or ₹899/mo), your saved history and generations do not expire.",
   },
 ];
 

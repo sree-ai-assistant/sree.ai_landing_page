@@ -53,7 +53,7 @@ export default function Footer({ onOpenWaitlist }: FooterProps) {
               />
             </a>
             <p className="text-sm text-zinc-400 leading-relaxed max-w-sm">
-              The open multimodal AI platform unifying text intelligence, real-time voice, photorealistic graphics, video, 2D to 3D spatial models, and AI text humanization.
+              The unified multimodal AI platform unifying text intelligence, real-time voice, photorealistic graphics, video, 2D to 3D spatial models, and AI text humanization.
             </p>
 
             {/* Status Indicator */}

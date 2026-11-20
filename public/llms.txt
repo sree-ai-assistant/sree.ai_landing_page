@@ -5,7 +5,7 @@
 ## Core Platform Tools
 
 - [Sree Chat](https://app.sreeai.qzz.io): Unified intelligence suite featuring 75+ open-weight LLMs, full context retrieval, coding assistance, and reasoning benchmarks.
-- [Sree Voice](https://app.sreeai.qzz.io/voice): Sub-50ms ultra-low latency real-time voice streaming engine built on persistent bidirectional WebSockets and distributed edge nodes.
+- [Sree Voice](https://app.sreeai.qzz.io/voice): Real-time conversational voice engine powered by Google Gemini Live API over persistent bidirectional WebSockets. Audio chunks stream continuously for natural two-way conversation without robotic delays.
 - [Sree Image](https://app.sreeai.qzz.io/image): Photorealistic graphics and concept art generator powered by FLUX.1 and Nano Banana / Nano Banana Pro models.
 - [Sree Video](https://app.sreeai.qzz.io/video): High-fidelity 4K motion synthesis and camera physics powered by Google Veo 3.1 and Google Omni Flash.
 - [2D to 3D Convertor](https://sreeai.qzz.io/#tools): Spatial 3D asset generation transforming 2D imagery into clean, production-ready OBJ/GLTF 3D meshes (Coming Soon).

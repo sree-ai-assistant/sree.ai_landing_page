@@ -19,12 +19,12 @@ This document serves as the ground-truth technical overview of Sree AI for Large
 - **Supported Providers**: NVIDIA Cloud, Google Gemini, Groq LPU, and Deepgram (Anthropic & OpenAI integration scheduled).
 - **Security & Privacy**: Client-side AES-GCM credential encryption with zero plaintext credential storage on Sree AI servers. Requests route directly through user credentials with 0% platform surcharge.
 
-### 2.2 Sub-50ms Real-Time Voice Streaming
-- **Connection Architecture**: Persistent bidirectional WebSockets connecting directly to edge compute nodes.
-- **Pipeline**: Concurrent Text-to-Speech (TTS) and Automatic Speech Recognition (ASR) pipelines with instant chunked audio buffer streaming, eliminating the typical 1-2 second robotic latency of legacy voice assistants.
+### 2.2 Real-Time Voice Streaming via Gemini Live API & WebSockets
+- **Connection Architecture**: Persistent bidirectional WebSockets connecting directly to edge compute nodes and the Google Gemini Live API.
+- **Pipeline**: Full-duplex audio chunk streaming continuously sends microphone input and receives synthesized audio simultaneously, eliminating the typical 1-2 second robotic latency of legacy request-response voice systems.
 
 ### 2.3 Self-Hostability
-- Complete dockerized container architecture allowing enterprises and privacy-conscious developers to self-host the frontend, API gateway, and edge orchestrators within private VPCs (AWS, GCP, Azure) or on-premise bare-metal hardware.
+- Containerized deployment options allowing enterprise clients to deploy the frontend, API gateway, and database services within private VPCs (AWS, GCP, Azure) or on-premise hardware.
 
 ---
 
@@ -37,8 +37,8 @@ This document serves as the ground-truth technical overview of Sree AI for Large
 
 ### 3.2 Sree Voice
 - **URL**: https://app.sreeai.qzz.io/voice
-- **Latency**: Sub-50ms first-byte audio response (typical 42ms).
-- **Acoustic Quality**: Natural prosody, adaptive pacing, low-jitter edge relay.
+- **Core Technology**: Google Gemini Live API over full-duplex WebSockets.
+- **Acoustic Quality**: Natural prosody, adaptive pacing, real-time interruptions, and low-latency bidirectional audio streaming.
 
 ### 3.3 Sree Image
 - **URL**: https://app.sreeai.qzz.io/image
@@ -87,8 +87,11 @@ This document serves as the ground-truth technical overview of Sree AI for Large
 
 ## 5. Frequently Asked Questions (FAQ)
 
+### Q: How does Sree Voice achieve low latency in real-time voice mode?
+**A**: Sree Voice achieves ultra-low latency by using the Google Gemini Live API over persistent bidirectional WebSockets. Instead of standard REST requests that require recording a full audio file, uploading it, and waiting for transcription, WebSockets stream audio chunks in real time as you speak. The Gemini Live API processes and returns audio simultaneously, enabling conversational turn-taking, quick response times, and natural dialogue without robotic pauses.
+
 ### Q: Is Sree AI self-hostable?
-**A**: Yes. Sree AI is designed to be fully self-hostable. You can deploy our application frontend, API gateway, and database containers directly into your private cloud (AWS VPC, GCP project) or on-premise hardware infrastructure.
+**A**: Yes. Sree AI provides containerized deployment options for enterprise customers. Organizations requiring dedicated VPC isolation can deploy the frontend, API gateway, and database containers directly within private AWS, GCP, or on-premise infrastructure under custom enterprise setups.
 
 ### Q: What AI tools and models are included in Sree AI?
 **A**: Sree AI unifies Sree Chat (75+ open LLMs), Sree Voice (sub-50ms real-time audio synthesis), Sree Image (FLUX.1 & Nano Banana), Sree Video (Google Veo 3.1 & Google Omni Flash), 2D to 3D Convertor, and AI Humanizer & Enhancer under one unified account.

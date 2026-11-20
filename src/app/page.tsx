@@ -43,8 +43,8 @@ const partnerLogos = [
   { name: "FLUX.1 & FLUX.2", desc: "Photorealistic Image Gen" },
   { name: "Qwen 2.5 Coder", desc: "Specialized Code AI" },
   { name: "Mistral Large", desc: "Mixture of Experts" },
-  { name: "DeepSeek V4", desc: "Reasoning & Logic AI" },
-  { name: "DeepSeek V4 Pro", desc: "Reasoning & Logic AI" },
+  { name: "DeepSeek-R1", desc: "Reasoning & Math Engine" },
+  { name: "Gemini 2.0 Flash", desc: "Multimodal Real-Time Core" },
   { name: "NVIDIA NIM", desc: "Accelerated GPU Inference" },
   { name: "Groq LPU", desc: "Ultra-Low Latency Engine" },
   { name: "Google Veo 3.1", desc: "Cinematic 4K Video Gen" },
@@ -331,14 +331,14 @@ export default function Home() {
                       <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-6">
                         <Zap className="h-6 w-6" />
                       </div>
-                      <h3 className="text-xl font-bold text-white">Sub-50ms Voice Streaming</h3>
+                      <h3 className="text-xl font-bold text-white">Gemini Live API & WebSockets</h3>
                       <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
-                        Direct persistent WebSocket connections eliminate REST roundtrips, allowing natural human speech flow without delays.
+                        Powered by Google Gemini Live API connected through persistent full-duplex WebSockets. Audio chunks stream continuously in real time for instantaneous conversational turn-taking without REST latency.
                       </p>
                     </div>
                     <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-blue-400 font-semibold">
-                      <span>Deno Edge Runtime</span>
-                      <span>42ms AVG</span>
+                      <span>Gemini Live API</span>
+                      <span>Real-Time Stream</span>
                     </div>
                   </div>
 
@@ -353,7 +353,7 @@ export default function Home() {
                       </p>
                     </div>
                     <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-purple-400 font-semibold">
-                      <span>SOC2 & GDPR Compliant</span>
+                      <span>Privacy-First & GDPR Ready</span>
                       <span>BYOK Ready</span>
                     </div>
                   </div>

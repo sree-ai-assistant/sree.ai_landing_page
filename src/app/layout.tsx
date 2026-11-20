@@ -14,8 +14,8 @@ export const metadata: Metadata = {
     "Multimodal AI",
     "Open Weights LLM",
     "DeepSeek V3",
-    "DeepSeek V4",
-    "DeepSeek V4 Pro",
+    "DeepSeek-R1",
+    "Gemini Live API",
     "Real-time Voice AI",
     "FLUX.1",
     "Nano Banana",
@@ -134,7 +134,7 @@ const jsonLdData = [
     "@type": "WebSite",
     "name": "Sree AI",
     "url": "https://sreeai.qzz.io",
-    "description": "Unified multimodal AI platform featuring 75+ open LLMs, sub-50ms real-time voice, FLUX.1 & Nano Banana image generation, Google Veo 3.1 & Omni Flash 4K video, 2D to 3D spatial models, and BYOK zero-markup architecture."
+    "description": "Unified multimodal AI platform featuring 75+ open LLMs, real-time voice powered by Gemini Live API and WebSockets, FLUX.1 & Nano Banana image generation, Google Veo 4K video, 2D to 3D spatial models, and BYOK zero-markup architecture."
   },
   {
     "@context": "https://schema.org",
@@ -189,10 +189,18 @@ const jsonLdData = [
     "mainEntity": [
       {
         "@type": "Question",
+        "name": "How does Sree Voice achieve low latency in real-time voice mode?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sree Voice achieves ultra-low latency by leveraging the Google Gemini Live API over persistent bidirectional WebSockets. Instead of standard REST requests that wait for entire audio files to record and upload, WebSockets stream audio chunks continuously in real time as you speak, enabling instant speech synthesis and natural conversational flow without awkward robotic pauses."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Is Sree AI self-hostable?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Sree AI is designed to be fully self-hostable. You can deploy our application frontend, API gateway, and database containers directly into your private cloud (AWS VPC, GCP project) or on-premise hardware infrastructure."
+          "text": "Yes. Sree AI provides containerized deployment options for enterprise customers. Organizations requiring isolated private cloud environments can deploy the frontend, API gateway, and database containers directly within private AWS, GCP, or on-premise infrastructure under custom enterprise setups."
         }
       },
       {
@@ -200,7 +208,7 @@ const jsonLdData = [
         "name": "What AI tools and models are included in Sree AI?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sree AI unifies Sree Chat (75+ open LLMs), Sree Voice (sub-50ms real-time audio synthesis), Sree Image (FLUX.1 & Nano Banana), Sree Video (Google Veo 3.1 & Google Omni Flash), 2D to 3D Convertor, and AI Humanizer & Enhancer under one unified account."
+          "text": "Sree AI unifies Sree Chat (75+ models including DeepSeek-V3, DeepSeek-R1, Llama 3.3, and Qwen), Sree Voice (powered by Google Gemini Live API via WebSockets), Sree Image (FLUX.1 and Nano Banana), Sree Video (Google Veo), plus upcoming 2D to 3D Convertor and AI Humanizer under a single unified dashboard."
         }
       },
       {
@@ -208,7 +216,7 @@ const jsonLdData = [
         "name": "How does Bring Your Own Keys (BYOK) work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "BYOK allows you to connect your own API keys from inference providers like NVIDIA, Google, Groq, and Deepgram (with Anthropic & OpenAI support coming soon). When enabled, your requests route directly through your keys with zero platform markups across all plans."
+          "text": "BYOK allows you to connect your own API keys from supported inference providers like Google Gemini, NVIDIA Cloud, and Groq (with OpenAI and Anthropic integrations in active progress). When enabled, your requests route directly through your personal keys with zero platform markups across all plans."
         }
       },
       {
@@ -216,7 +224,7 @@ const jsonLdData = [
         "name": "What are the storage retention policies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "On the Free plan ($0 / ₹0), generated chats, audio streams, images, and videos are automatically purged after 30 days. On Starter ($8/mo or ₹399/mo), data is retained for 3 months. On Pro ($29/mo or ₹899/mo), your data has no expiration period."
+          "text": "On the Free plan ($0 / ₹0), generated chats, audio streams, and images are stored for 30 days before automatic cleanup. On Starter ($8/mo or ₹399/mo), data is retained for 3 months. On Pro ($29/mo or ₹899/mo), your saved history and generations do not expire."
         }
       }
     ]
